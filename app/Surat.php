@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Surat extends Model
 {
     protected $table = 'surat';
-    protected $fillable = ['no_surat', 'keperluan', 'tujuan'];
+    protected $guarded = [];
     
     public function jenis_surat() {
         return $this->belongsTo('App\JenisSurat', 'id_jenis_surat');

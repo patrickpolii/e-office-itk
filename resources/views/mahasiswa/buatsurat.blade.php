@@ -1,4 +1,6 @@
 @extends('/mahasiswa/layouts/main')
+@section('class', 'Buat Surat')
+@section('title', 'Buat Surat')
 		@section('container')
 		<div class="row">
 			<div class="col-md-4">

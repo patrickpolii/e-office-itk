@@ -12,6 +12,11 @@ class Mahasiswa extends Model
     public function prodi() {
         return $this->belongsTo('App\Prodi', 'id_prodi');
     }
+
+    public function users() {
+        return $this->belongsTo('App\User', 'id_users');
+    }
+
     public function surat() {
         return $this->hasMany('App\Surat', 'id_mahasiswa');
     }   
