@@ -4,7 +4,7 @@
             <img src="http://placehold.it/50/30a5ff/fff" class="img-responsive" alt="">
         </div>
         <div class="profile-usertitle">
-            <div class="profile-usertitle-name"> 
+            <div class="profile-usertitle-name">
                 {{ Auth::user()->name }}
             </div>
             <div class="profile-usertitle-status"><span class="indicator label-success"></span>Online</div>
@@ -13,11 +13,21 @@
     </div>
     <div class="divider"></div>
     <ul class="nav menu">
-        <li class="@if (Request::segment(1)=='home') active @endif">
-            <a href="{{ url('/home') }}"><em class="fa fa-home">&nbsp;</em> Home </a>
-        </li>
-        <li class="@if (Request::segment(1)=='buatsurat') active @endif">
-            <a href="{{ url('/buatsurat') }}"><em class="fa fa-file-text">&nbsp;</em> Buat Surat</a>
+        <li class="active"><a href="{{ url('/home') }}"><em class="fa fa-home">&nbsp;</em> Dashboard </a></li>
+        <li class="parent "><a data-toggle="collapse" href="#">
+            <em class="fa fa-file-text">&nbsp;</em> Arsip <span data-toggle="collapse" href="#sub-item-1" class="icon pull-right"><em class="fa fa-plus"></em></span>
+            </a>
+            <ul class="children collapse" id="sub-item-1">
+                <li><a class="" href="#">
+                    <span class="fa fa-arrow-right">&nbsp;</span> Terverivikasi
+                </a></li>
+                <li><a class="" href="#">
+                    <span class="fa fa-arrow-right">&nbsp;</span> Ditolak
+                </a></li>
+                <li><a class="" href="#">
+                    <span class="fa fa-arrow-right">&nbsp;</span> Expired
+                </a></li>
+            </ul>
         </li>
         <li>
             <a href="{{ route('logout') }}"
@@ -30,8 +40,4 @@
             </form>
         </li>
     </ul>
-    
 </div><!--/.sidebar-->
-    
-
-    

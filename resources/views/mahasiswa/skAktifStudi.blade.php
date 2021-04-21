@@ -4,7 +4,7 @@
 	<div class="container">
             <div class="row">
                 <div class="col-10">
-                    <h1 class="mt-3">Membuat Surat Keterangan Aktif Studi</h1>
+                    
                         @if(count($errors) > 0)
                         <div class="alert alert-danger">
                             <ul>
@@ -17,16 +17,12 @@
                     <form method="post" action="">
                         @csrf
                         <div class="form-group">
-                            <label for="nama">Nama </label>
-                            <input type="text" class="form-control" id="nama" placeholder="Masukan Nama" name="nama">
+                            <label for="akreditasi">Akreditasi Program Studi </label>
+                            <input type="text" class="form-control" id="akreditasi" placeholder="Masukan Akreditasi Prodi" name="tujuan">
                         </div>
                         <div class="form-group">
-                            <label for="NIM">NIM </label>
-                            <input type="text" class="form-control" id="nim" placeholder="Masukan NIM" name="nim">
-                        </div>
-                        <div class="form-group">
-                            <label for="prodi">Prodi </label>
-                            <input type="text" class="form-control" id="prodi" placeholder="Masukan Prodi" name="Prodi">
+                            <label for="tujuan">Tujuan Surat </label>
+                            <input type="text" class="form-control" id="tujuan" placeholder="Masukan Tujuan Surat" name="tujuan">
                         </div>
                         <div class="form-group">
                             <label for="keperluan">Keperluan Pemohon </label>

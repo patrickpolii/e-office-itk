@@ -1,4 +1,4 @@
-@extends('/mahasiswa/layouts/main')
+@extends('mahasiswa.layouts.main')
 @section('class', 'Buat Surat')
 @section('title', 'Buat Surat')
 		@section('container')

@@ -23,7 +23,6 @@ class CreateTableMahasiswa extends Migration
             $table->foreign('id_prodi')
                   ->references('id')
                   ->on('prodi');
-            $table->string('nama_mahasiswa', 191);
             $table->string('nim', 8)->unique();
             $table->timestamps();
         });

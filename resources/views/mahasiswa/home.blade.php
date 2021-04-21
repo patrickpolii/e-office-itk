@@ -1,3 +1,3 @@
-@extends('/mahasiswa/layouts/main')
+@extends('mahasiswa.layouts.main')
 
 @section('title', 'Home')

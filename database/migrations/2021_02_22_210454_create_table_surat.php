@@ -20,16 +20,15 @@ class CreateTableSurat extends Migration
             $table->foreign('id_jenis_surat')
                   ->references('id')
                   ->on('jenis_surat');
-            $table->bigInteger('id_pejabat')->unsigned();
-            $table->foreign('id_pejabat')
-                  ->references('id')
-                  ->on('pejabat');
+           
             $table->bigInteger('id_mahasiswa')->unsigned();
             $table->foreign('id_mahasiswa')
                   ->references('id')
                   ->on('mahasiswa');
             $table->string('keperluan', 191);
             $table->string('tujuan_surat', 191);
+            $table->string('tahun_akademik')->nullable();
+            $table->string('semester')->nullable();
             $table->string('organisasi')->nullable();
             $table->string('jabatan_organisasi')->nullable();
             $table->string('akreditasi_prodi')->nullable();

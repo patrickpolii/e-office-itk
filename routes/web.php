@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,9 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'PagesController@HomePage');
+
+Auth::routes(['register' => false]);
+
+Route::get('/akademik', function () {
+    return view('/akademik/dashboard');
+})->middleware('role:akademik')->name('akademik.dashboard');
 
 
 Route::get('/skAktifStudi', function () {
@@ -34,12 +39,14 @@ Route::get('/skLulus', function () {
     return view('/mahasiswa/skLulus');
 });
 
-Route::get('/akademik', function () {
-    return view('/akademik/dashboard');
+
+Route::get('/home', 'PagesController@Home');
+Route::group(['prefix'=>'buatsurat'], function(){
+    Route::get('/', 'PagesController@BuatSurat');
+   
 });
 
-Route::get('/home', 'PagesController@mahasiswa');
-Route::get('/buatsurat', 'PagesController@BuatSurat');
+
 Route::get('/mahasiswa/buatsurat/SkAktifstudi', 'SuratController@CreateSkAktifStudi');
 Route::get('/mahasiswa/buatsurat/SkKtm', 'SuratController@CreateSkKtm');
 Route::get('/mahasiswa/buatsurat/SkOrganisasi', 'SuratController@CreateSkOrganisasi');
@@ -47,9 +54,10 @@ Route::get('/mahasiswa/buatsurat/SkStudi', 'SuratController@CreateSkStudi');
 Route::get('/mahasiswa/buatsurat/SkLulus', 'SuratController@CreateSkLulus');
 
 
-Route::get('/akademik/dashboard', 'PagesController@akademik');
+
 Route::get('/akademik/arsip/terima', 'surat_controller@index_arsip');
 Route::get('/akademik/pemohon/{id}', 'surat_controller@show_akademik');
 Route::get('/akademik/terima/{id}',  'surat_controller@update_akademik_terima');
 Route::get('/akademik/tolak/{id}',  'surat_controller@update_akademik_tolak');
 Route::get('/akademik/cetak/{id}', 'surat_controller@cetak_akademik');
+

@@ -6,7 +6,12 @@ use Illuminate\Http\Request;
 
 class PagesController extends Controller
 {
-    public function mahasiswa()
+    public function HomePage()
+    {
+        return view ('homepage/app');
+    }
+
+    public function Home()
     {
         return view ('mahasiswa/home');
     }
@@ -15,4 +20,5 @@ class PagesController extends Controller
     {
         return view ('mahasiswa/buatsurat');
     }
+
 }

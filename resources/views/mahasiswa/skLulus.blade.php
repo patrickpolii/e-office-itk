@@ -1,4 +1,4 @@
-@extends('/mahasiswa/layouts/main')
+@extends('mahasiswa.layouts.main')
 	@section('container')	
 	<div class="container">
             <div class="row">
