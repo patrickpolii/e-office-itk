@@ -7,17 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 class Mahasiswa extends Model
 {
     protected $table = 'mahasiswa';
-    protected $fillable = ['nama_mahasiswa', 'nim',];
+    protected $fillable = ['nim',];
  
     public function prodi() {
         return $this->belongsTo('App\Prodi', 'id_prodi');
     }
 
     public function users() {
-        return $this->belongsTo('App\User', 'id_users');
+        return $this->hasOne('App\User', 'id_mahasiswa');
     }
 
-    public function surat() {
-        return $this->hasMany('App\Surat', 'id_mahasiswa');
-    }   
+    
 }

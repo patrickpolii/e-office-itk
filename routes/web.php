@@ -22,10 +22,8 @@ Route::get('/akademik', function () {
     return view('/akademik/dashboard');
 })->middleware('role:akademik')->name('akademik.dashboard');
 
-
-Route::get('/skAktifStudi', function () {
-    return view('/mahasiswa/skAktifStudi');
-});
+Route::get('/skAktifStudi', 'SuratController@sk_aktif_studi_create');
+Route::post('/skAktifStudi', 'SuratController@sk_aktif_studi_store')->name('skAktifStudi.store');
 Route::get('/skKTM', function () {
     return view('/mahasiswa/skKTM');
 });

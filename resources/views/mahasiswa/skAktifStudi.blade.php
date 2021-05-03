@@ -3,7 +3,7 @@
 	@section('container')	
 	<div class="container">
             <div class="row">
-                <div class="col-10">
+                <div class="col-md-10">
                     
                         @if(count($errors) > 0)
                         <div class="alert alert-danger">
@@ -14,15 +14,15 @@
                             </ul>
                         </div>
                         @endif
-                    <form method="post" action="">
+                    <form action="{{ route('skAktifStudi.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
-                            <label for="akreditasi">Akreditasi Program Studi </label>
-                            <input type="text" class="form-control" id="akreditasi" placeholder="Masukan Akreditasi Prodi" name="tujuan">
+                            <label for="akreditasi_prodi">Akreditasi Program Studi </label>
+                            <input type="text" class="form-control" id="akreditasi_prodi" placeholder="Masukan Akreditasi Prodi" name="akreditasi_prodi">
                         </div>
                         <div class="form-group">
-                            <label for="tujuan">Tujuan Surat </label>
-                            <input type="text" class="form-control" id="tujuan" placeholder="Masukan Tujuan Surat" name="tujuan">
+                            <label for="tujuan_surat">Tujuan Surat </label>
+                            <input type="text" class="form-control" id="tujuan_surat" placeholder="Masukan Tujuan Surat" name="tujuan_surat">
                         </div>
                         <div class="form-group">
                             <label for="keperluan">Keperluan Pemohon </label>
@@ -37,8 +37,8 @@
                                     </select>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="tahun">TAHUN AJARAN</label>
-                                    <select name="tahun" id="semester" class="form-control">
+                                <label for="tahun_akademik">TAHUN AJARAN</label>
+                                    <select name="tahun_akademik" id="tahun_akademik" class="form-control">
                                         <option value="{{date('Y')-1}}/{{date('Y')}}">{{date('Y')-1}}/{{date('Y')}}</option>
                                         <option value="{{date('Y')}}/{{date('Y')+1}}">{{date('Y')}}/{{date('Y')+1}}</option>
                                     </select>

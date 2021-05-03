@@ -15,14 +15,14 @@ class CreateTableMahasiswa extends Migration
     {
         Schema::create('mahasiswa', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('id_users')->unsigned();
-            $table->foreign('id_users')
-                  ->references('id')
-                  ->on('users');
             $table->bigInteger('id_prodi')->unsigned();
             $table->foreign('id_prodi')
                   ->references('id')
                   ->on('prodi');
+            $table->bigInteger('id_users')->unsigned();
+            $table->foreign('id_users')
+                  ->references('id')
+                  ->on('users');      
             $table->string('nim', 8)->unique();
             $table->timestamps();
         });

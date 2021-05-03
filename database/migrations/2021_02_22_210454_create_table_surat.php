@@ -15,16 +15,16 @@ class CreateTableSurat extends Migration
     {
         Schema::create('surat', function (Blueprint $table) {
             $table->id();
-            $table->string('no_surat', 191)->unique();
+            $table->string('no_surat', 191)->nullable();
             $table->bigInteger('id_jenis_surat')->unsigned();
             $table->foreign('id_jenis_surat')
                   ->references('id')
                   ->on('jenis_surat');
            
-            $table->bigInteger('id_mahasiswa')->unsigned();
-            $table->foreign('id_mahasiswa')
+            $table->bigInteger('id_users')->unsigned();
+            $table->foreign('id_users')
                   ->references('id')
-                  ->on('mahasiswa');
+                  ->on('users');
             $table->string('keperluan', 191);
             $table->string('tujuan_surat', 191);
             $table->string('tahun_akademik')->nullable();
