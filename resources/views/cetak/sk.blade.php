@@ -2,7 +2,7 @@
 
 @section('content')
 
-@foreach ($surat as $surat)
+
 
     <!-- No Surat -->
     <div class="text-center">
@@ -47,9 +47,12 @@
 
     <div class="row">
         <div class="col text-justify">
+            @if($surat->id_jenis_surat == 1)
             Menerangkan dengan sebenarnya bahwa sampai dengan semester 
             tahun akademik {{$surat->tahun_akademik}}, yang tersebut dibawah ini adalah Mahasiswa aktif 
             mengikuti perkuliahan di Institut Teknologi Kalimantan (ITK) :
+            @elseif($surat->id_jenis_surat == 2)
+
         </div>
     </div>
     <br><br>
@@ -58,9 +61,7 @@
     <div class="row">
         <div class="col">
             <table width="100%">
-                @foreach ($surat as $surat)
-                    
-                @endforeach
+
                 <tr>
                     <td style="width:10%">Nama</td>
                     <td style="width:2%">:</td>
@@ -74,7 +75,7 @@
                 <tr>
                     <td>Prodi</td>
                     <td>:</td>
-                    <td>{{$surat->users->mahasiswa['nama_prodi']}}</td>
+                    <td>{{$surat->users->mahasiswa->prodi['nama_prodi']}}</td>
                 </tr>
             </table>
         </div>
@@ -102,6 +103,6 @@
     </div>
     <br>
 
-@endforeach
+
 
 @endsection

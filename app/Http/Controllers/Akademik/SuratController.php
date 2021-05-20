@@ -11,6 +11,7 @@ use App\Jurusan;
 use App\JenisSurat;
 use Auth;
 use PDF;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class SuratController extends Controller
@@ -103,11 +104,9 @@ class SuratController extends Controller
     public function cetak($id)
     {
     	$surat = Surat::findOrFail($id);
-        $jenis_surat = JenisSurat::all();
-        $users = User::all();
-        $mahasiswa = Mahasiswa::all();
+        $tanggal = Carbon::today()->format('d-m-Y');
 
-    	$pdf = PDF::loadview('cetak.sk',['akademik.details'=>$surat]);
+    	$pdf = PDF::loadview('cetak.sk',['surat'=>$surat, 'tanggal'=>$tanggal]);
     	return $pdf->download('surat-pdf');
     }
 }
