@@ -8,7 +8,8 @@ use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
 use App\Surat;
 use App\Mahasiswa;
-use App\UnitKerja;
+
+
 
 class User extends Authenticatable
 {
@@ -45,7 +46,7 @@ class User extends Authenticatable
 
 
     public function mahasiswa(){
-        return $this->belongsTo('App\mahasiswa', 'id_mahasiswa');
+        return $this->hasOne('App\mahasiswa', 'id_users');
     }
 
 

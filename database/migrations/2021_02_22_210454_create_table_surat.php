@@ -28,7 +28,13 @@ class CreateTableSurat extends Migration
             $table->string('keperluan', 191);
             $table->string('tujuan_surat', 191);
             $table->string('tahun_akademik')->nullable();
+            $table->string('tahun_akademik_awal')->nullable();
+            $table->string('tahun_akademik_akhir')->nullable();
             $table->string('semester')->nullable();
+            $table->string('semester_awal')->nullable();
+            $table->string('semester_akhir')->nullable();
+            $table->string('tanggal_yudisium')->nullable();
+            $table->tinyInteger('status_surat')->nullable();
             $table->string('organisasi')->nullable();
             $table->string('jabatan_organisasi')->nullable();
             $table->string('akreditasi_prodi')->nullable();

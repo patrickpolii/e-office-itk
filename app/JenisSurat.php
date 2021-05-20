@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Surat;
 use Illuminate\Database\Eloquent\Model;
 
 class JenisSurat extends Model
@@ -10,6 +11,6 @@ class JenisSurat extends Model
     protected $guarded = [];
     
     public function surat() {
-       return $this->hasMany('App\Surat', 'id_jenis_surat');
+       return $this->hasMany('App\Surat');
        }   
 }

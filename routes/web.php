@@ -18,38 +18,31 @@ Route::get('/', 'PagesController@HomePage');
 
 Auth::routes(['register' => false]);
 
-Route::get('/akademik', function () {
-    return view('/akademik/dashboard');
-})->middleware('role:akademik')->name('akademik.dashboard');
+Route::get('/akademik', 'Akademik\SuratController@index'
+)->middleware('role:akademik')->name('akademik.dashboard');
+Route::get('/akademik/detail/{id}', 'Akademik\SuratController@show');
+Route::get('/akademik/detail/{id}/cetak', 'Akademik\SuratController@cetak')->name('cetak.surat');
 
-Route::get('/skAktifStudi', 'SuratController@sk_aktif_studi_create');
-Route::post('/skAktifStudi', 'SuratController@sk_aktif_studi_store')->name('skAktifStudi.store');
-Route::get('/skKTM', function () {
-    return view('/mahasiswa/skKTM');
-});
-Route::get('/skOrganisasi', function () {
-    return view('/mahasiswa/skOrganisasi');
-});
-Route::get('/skStudi', function () {
-    return view('/mahasiswa/skStudi');
-});
-Route::get('/skLulus', function () {
-    return view('/mahasiswa/skLulus');
-});
+
+Route::get('/skAktifStudi', 'Mahasiswa\SuratController@sk_aktif_studi_create');
+Route::post('/skAktifStudi', 'Mahasiswa\SuratController@sk_aktif_studi_store')->name('skAktifStudi.store');
+Route::get('/skKTM', 'Mahasiswa\SuratController@sk_ktm_create');
+Route::post('/skKTM', 'Mahasiswa\SuratController@sk_pengganti_ktm_store')->name('skKTM.store');
+Route::get('/skOrganisasi', 'Mahasiswa\SuratController@sk_organisasi_create');
+Route::post('/skOrganisasi', 'Mahasiswa\SuratController@sk_aktif_organisasi_store')->name('skOrganisasi.store');
+Route::get('/skStudi', 'Mahasiswa\SuratController@sk_studi_create');
+Route::post('/skStudi', 'Mahasiswa\SuratController@sk_pernah_studi_store')->name('skStudi.store');
+Route::get('/skLulus', 'Mahasiswa\SuratController@sk_lulus_create');
+Route::post('/skLulus', 'Mahasiswa\SuratController@sk_lulus_store')->name('skLulus.store');
+
 
 
 Route::get('/home', 'PagesController@Home');
 Route::group(['prefix'=>'buatsurat'], function(){
-    Route::get('/', 'PagesController@BuatSurat');
+    Route::get('/', 'PagesController@BuatSurat')->name('buat.surat');
    
 });
 
-
-Route::get('/mahasiswa/buatsurat/SkAktifstudi', 'SuratController@CreateSkAktifStudi');
-Route::get('/mahasiswa/buatsurat/SkKtm', 'SuratController@CreateSkKtm');
-Route::get('/mahasiswa/buatsurat/SkOrganisasi', 'SuratController@CreateSkOrganisasi');
-Route::get('/mahasiswa/buatsurat/SkStudi', 'SuratController@CreateSkStudi');
-Route::get('/mahasiswa/buatsurat/SkLulus', 'SuratController@CreateSkLulus');
 
 
 

@@ -14,7 +14,7 @@ class Mahasiswa extends Model
     }
 
     public function users() {
-        return $this->hasOne('App\User', 'id_mahasiswa');
+        return $this->belongsTo('App\User', 'id_users');
     }
 
     

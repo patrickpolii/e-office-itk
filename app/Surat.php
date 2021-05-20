@@ -2,6 +2,7 @@
 
 namespace App;
 use App\User;
+use App\Mahasiswa;
 use Illuminate\Database\Eloquent\Model;
 
 class Surat extends Model
@@ -18,11 +19,5 @@ class Surat extends Model
 
 
 
-    public function setNoSuratAttribute($value) {
-        if ( empty($value) ) {
-        $this->attributes['no_surat'] = NULL;
-        } else {
-            $this->attributes['no_surat'] = $value;
-        }
-    }
+   
 }

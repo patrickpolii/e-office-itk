@@ -10,42 +10,22 @@
                     <th scope="col">No</th>
                     <th scope="col">Nama</th>
                     <th scope="col">NIM</th>
-                    <th scope="col">Program Studi</th>
                     <th scope="col">Jenis Surat</th>
                     <th scope="col">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                    <th scope="row">1</th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>
-                        <a href=""class="badge badge-success">details</a>
-                    </td>
-                    </tr>
-                    <tr>
-                    <th scope="row">2</th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>
-                        <a href=""class="badge badge-success">details</a>
-                    </td>
-                    </tr>
-                    <tr>
-                    <th scope="row">3</th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>
-                        <a href=""class="badge badge-success">details</a>
-                    </td>
-                    </tr>
+                    @foreach ($surat as $surat)
+                        <tr>
+                        <th>{{$surat->id}}</th>
+                        <td> {{$surat->users['name'] }} </td>
+                        <td> {{$surat->users->mahasiswa['nim'] }} </td>
+                        <td> {{$surat->jenis_surat['nama_surat']}} </td>
+                        <td>
+                            <a href="akademik/detail/{{$surat->id}}"class="badge badge-success">details</a>
+                        </td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
 

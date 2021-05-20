@@ -14,6 +14,6 @@ class Prodi extends Model
         return $this->belongsTo('App\Jurusan', 'id_jurusan');
     }
     public function mahasiswa() {
-        return $this->hasMany('App\Mahasiswa', 'id_prodi');
+        return $this->hasMany('App\Mahasiswa');
     }   
 }

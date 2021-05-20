@@ -16,34 +16,37 @@
                         @endif
                     <form action="{{ route('skAktifStudi.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
+                        <input type="hidden" name="id_users" value="{{ Auth::user()->id}}">
+                        <input type="hidden" name="id_jenis_surat" value="{{ 1 }}">
                         <div class="form-group">
                             <label for="akreditasi_prodi">Akreditasi Program Studi </label>
-                            <input type="text" class="form-control" id="akreditasi_prodi" placeholder="Masukan Akreditasi Prodi" name="akreditasi_prodi">
+                            <input type="text" class="form-control" id="akreditasi_prodi" placeholder="Masukan Akreditasi Prodi" name="akreditasi_prodi" required>
                         </div>
                         <div class="form-group">
                             <label for="tujuan_surat">Tujuan Surat </label>
-                            <input type="text" class="form-control" id="tujuan_surat" placeholder="Masukan Tujuan Surat" name="tujuan_surat">
+                            <input type="text" class="form-control" id="tujuan_surat" placeholder="Masukan Tujuan Surat" name="tujuan_surat" required>
                         </div>
                         <div class="form-group">
                             <label for="keperluan">Keperluan Pemohon </label>
-                            <input type="text" class="form-control" id="keperluan" placeholder="Masukan Keperluan" name="keperluan">
+                            <input type="text" class="form-control" id="keperluan" placeholder="Masukan Keperluan" name="keperluan" required>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="semester">SEMESTER</label>
-                                    <select name="semester" id="semester" class="form-control">
-                                        <option value="1">GANJIL</option>
-                                        <option value="2">GENAP</option>
+                                    <select name="semester" id="semester" class="form-control" required>
+                                        <option value="Ganjil">GANJIL</option>
+                                        <option value="Genap">GENAP</option>
                                     </select>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="tahun_akademik">TAHUN AJARAN</label>
-                                    <select name="tahun_akademik" id="tahun_akademik" class="form-control">
+                                    <select name="tahun_akademik" id="tahun_akademik" class="form-control" required>
                                         <option value="{{date('Y')-1}}/{{date('Y')}}">{{date('Y')-1}}/{{date('Y')}}</option>
                                         <option value="{{date('Y')}}/{{date('Y')+1}}">{{date('Y')}}/{{date('Y')+1}}</option>
                                     </select>
                             </div>
                         </div>
+                        <br>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
                 </div>

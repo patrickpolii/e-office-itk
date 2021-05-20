@@ -2,7 +2,7 @@
 
 @section('content')
 
-@foreach ($data as $item)
+@foreach ($surat as $surat)
 
     <!-- No Surat -->
     <div class="text-center">
@@ -48,12 +48,7 @@
     <div class="row">
         <div class="col text-justify">
             Menerangkan dengan sebenarnya bahwa sampai dengan semester 
-            @if ($item->semester == 1)
-                ganjil
-            @else
-                genap
-            @endif 
-            tahun akademik {{$item->tahun_akademik}}, yang tersebut dibawah ini adalah Mahasiswa aktif 
+            tahun akademik {{$surat->tahun_akademik}}, yang tersebut dibawah ini adalah Mahasiswa aktif 
             mengikuti perkuliahan di Institut Teknologi Kalimantan (ITK) :
         </div>
     </div>
@@ -63,23 +58,23 @@
     <div class="row">
         <div class="col">
             <table width="100%">
-                @foreach ($mahasiswa as $data)
+                @foreach ($surat as $surat)
                     
                 @endforeach
                 <tr>
                     <td style="width:10%">Nama</td>
                     <td style="width:2%">:</td>
-                    <td style="width:88%">{{$data->nama}}</td>
+                    <td style="width:88%">{{$surat->users['name']}}</td>
                 </tr>
                 <tr>
                     <td>NIM</td>
                     <td>:</td>
-                    <td>{{$data->nim}}</td>
+                    <td>{{$surat->users->mahasiswa['nim']}}</td>
                 </tr>
                 <tr>
                     <td>Prodi</td>
                     <td>:</td>
-                    <td>{{$data->prodi}}</td>
+                    <td>{{$surat->users->mahasiswa['nama_prodi']}}</td>
                 </tr>
             </table>
         </div>
@@ -89,7 +84,7 @@
 
     <div class="row">
         <div class="col text-justify">
-            Demikian surat keterangan ini dibuat untuk dipergunakan sebagai {{$item->keterangan}}.
+            Demikian surat keterangan ini dibuat untuk dipergunakan sebagai {{$surat->keperluan}}.
         </div>
     </div>
     <br><br>

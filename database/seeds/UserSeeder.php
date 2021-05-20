@@ -27,5 +27,13 @@ class UserSeeder extends Seeder
         ]);
 
         $mahasiswa->assignRole('mahasiswa');
+
+        $mahasiswa = User::create([
+            'name' => 'Holilrurahman',
+            'email' => 'holil@student.itk.ac.id',
+            'password' => bcrypt('12345678'),
+        ]);
+
+        $mahasiswa->assignRole('mahasiswa');
     }
 }
