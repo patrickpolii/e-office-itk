@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTableJenisSurat extends Migration
+class CreateTableSkPenggantiKtm extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,13 @@ class CreateTableJenisSurat extends Migration
      */
     public function up()
     {
-        Schema::create('jenis_surat', function (Blueprint $table) {
+        Schema::create('sk_pengganti_ktm', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_surat', 191);
+            $table->bigInteger('id_surat')->unsigned();
+            $table->foreign('id_surat')
+                  ->references('id')
+                  ->on('surat');
+            $table->string('keperluan');
             $table->timestamps();
         });
     }
@@ -27,6 +31,6 @@ class CreateTableJenisSurat extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('jenis_surat');
+        Schema::dropIfExists('sk_pengganti_ktm');
     }
 }

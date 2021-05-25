@@ -15,7 +15,7 @@
                 <form action="{{ route('skOrganisasi.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <input type="hidden" name="id_users" value="{{ Auth::user()->id}}">
-                    <input type="hidden" name="id_jenis_surat" value="{{ 3 }}">
+                    <input type="hidden" name="nama_surat" value="{{ 'sk_aktif_organisasi' }}">
                     <div class="form-group">
                         <label for="organisasi">Organisasi </label>
                         <input type="text" class="form-control" id="organisasi" placeholder="Masukan Organisasi" name="organisasi" required>
@@ -23,10 +23,6 @@
                     <div class="form-group">
                         <label for="jabatan_organisasi">Jabatan</label>
                         <input type="text" class="form-control" id="jabatan_organisasi" placeholder="Masukan Jabatan Organisasi" name="jabatan_organisasi" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="tujuan_surat">Tujuan Surat </label>
-                        <input type="text" class="form-control" id="tujuan_surat" placeholder="Masukan Tujuan Surat" name="tujuan_surat" required>
                     </div>
                     <div class="form-group">
                         <label for="keperluan">Keperluan </label>

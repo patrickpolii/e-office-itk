@@ -8,7 +8,11 @@ use App\Mahasiswa;
 use App\User;
 use App\Prodi;
 use App\Jurusan;
-use App\JenisSurat;
+use App\Sk_aktif_organisasi;
+use App\Sk_aktif_studi;
+use App\Sk_lulus;
+use App\Sk_pengganti_ktm;
+use App\Sk_pernah_studi;
 use Illuminate\Http\Request;
 
 class SuratController extends Controller
@@ -82,7 +86,11 @@ class SuratController extends Controller
     public function sk_aktif_studi_store(Request $request)
     {
         $data = $request->all();
-        $create = Surat::create($data);
+        $surat = Surat::create($data);
+
+        // fungsi insert child
+        $data['id_surat'] = $surat->id;
+        $create = Sk_aktif_studi::create($data);
         return redirect()->route('buat.surat')->withSuccess('Permohonan surat berhasil dibuat');
     }
 
@@ -95,7 +103,11 @@ class SuratController extends Controller
     public function sk_pengganti_ktm_store(Request $request)
     {
         $data = $request->all();
-        $create = Surat::create($data);
+        $surat = Surat::create($data);
+
+        // fungsi insert child
+        $data['id_surat'] = $surat->id;
+        $create = Sk_pengganti_ktm::create($data);
         return redirect()->route('buat.surat')->withSuccess('Permohonan surat berhasil dibuat');
     }
 
@@ -108,7 +120,11 @@ class SuratController extends Controller
     public function sk_pernah_studi_store(Request $request)
     {
         $data = $request->all();
-        $create = Surat::create($data);
+        $surat = Surat::create($data);
+
+        // fungsi insert child
+        $data['id_surat'] = $surat->id;
+        $create = Sk_pernah_studi::create($data);
         return redirect()->route('buat.surat')->withSuccess('Permohonan surat berhasil dibuat');
     }
 
@@ -121,7 +137,11 @@ class SuratController extends Controller
     public function sk_aktif_organisasi_store(Request $request)
     {
         $data = $request->all();
-        $create = Surat::create($data);
+        $surat = Surat::create($data);
+
+        // fungsi insert child
+        $data['id_surat'] = $surat->id;
+        $create = Sk_aktif_organisasi::create($data);
         return redirect()->route('buat.surat')->withSuccess('Permohonan surat berhasil dibuat');
     }
 
@@ -134,7 +154,11 @@ class SuratController extends Controller
     public function sk_lulus_store(Request $request)
     {
         $data = $request->all();
-        $create = Surat::create($data);
+        $surat = Surat::create($data);
+
+        // fungsi insert child
+        $data['id_surat'] = $surat->id;
+        $create = Sk_lulus::create($data);
         return redirect()->route('buat.surat')->withSuccess('Permohonan surat berhasil dibuat');
     }
 

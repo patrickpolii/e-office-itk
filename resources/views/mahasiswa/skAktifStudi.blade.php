@@ -17,14 +17,10 @@
                     <form action="{{ route('skAktifStudi.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <input type="hidden" name="id_users" value="{{ Auth::user()->id}}">
-                        <input type="hidden" name="id_jenis_surat" value="{{ 1 }}">
+                        <input type="hidden" name="nama_surat" value="{{ 'sk_aktif_studi' }}">
                         <div class="form-group">
                             <label for="akreditasi_prodi">Akreditasi Program Studi </label>
                             <input type="text" class="form-control" id="akreditasi_prodi" placeholder="Masukan Akreditasi Prodi" name="akreditasi_prodi" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="tujuan_surat">Tujuan Surat </label>
-                            <input type="text" class="form-control" id="tujuan_surat" placeholder="Masukan Tujuan Surat" name="tujuan_surat" required>
                         </div>
                         <div class="form-group">
                             <label for="keperluan">Keperluan Pemohon </label>

@@ -16,11 +16,7 @@
                     <form action="{{ route('skLulus.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <input type="hidden" name="id_users" value="{{ Auth::user()->id}}">
-                        <input type="hidden" name="id_jenis_surat" value="{{ 5 }}">
-                        <div class="form-group">
-                            <label for="tujuan_surat">Tujuan Surat </label>
-                            <input type="text" class="form-control" id="tujuan_surat" placeholder="Masukan Tujuan Surat" name="tujuan_surat" required>
-                        </div>
+                        <input type="hidden" name="nama_surat" value="{{ 'sk_lulus' }}">
                         <div class="form-group">
                             <label for="keperluan">Keperluan </label>
                             <input type="text" class="form-control" id="keperluan" placeholder="Masukan Keperluan" name="keperluan" required>
