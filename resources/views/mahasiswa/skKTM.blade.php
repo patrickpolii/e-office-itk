@@ -15,6 +15,7 @@
                     <form action="{{ route('skKTM.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <input type="hidden" name="id_users" value="{{ Auth::user()->id}}">
+                        <input type="hidden" name="status_surat" value="{{ 0 }}">
                         <input type="hidden" name="nama_surat" value="{{ 'sk_pengganti_ktm' }}">
                         <div class="form-group">
                             <label for="keperluan">Keperluan </label>

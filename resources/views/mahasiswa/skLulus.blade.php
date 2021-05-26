@@ -16,10 +16,15 @@
                     <form action="{{ route('skLulus.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <input type="hidden" name="id_users" value="{{ Auth::user()->id}}">
+                        <input type="hidden" name="status_surat" value="{{ 0 }}">
                         <input type="hidden" name="nama_surat" value="{{ 'sk_lulus' }}">
                         <div class="form-group">
                             <label for="keperluan">Keperluan </label>
                             <input type="text" class="form-control" id="keperluan" placeholder="Masukan Keperluan" name="keperluan" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="akreditasi_prodi">Akreditasi Prodi </label>
+                            <input type="text" class="form-control" id="akreditasi_prodi" placeholder="Masukan akreditasi program studi" name="akreditasi_prodi" required>
                         </div>
                         <div class="form-row">
                             <label for="tanggal_yudisium">Tanggal Yudisium</label>

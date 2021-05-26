@@ -14,10 +14,15 @@
             <form action="{{ route('skStudi.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <input type="hidden" name="id_users" value="{{ Auth::user()->id}}">
+                <input type="hidden" name="status_surat" value="{{ 0 }}">
                 <input type="hidden" name="nama_surat" value="{{ 'sk_pernah_studi' }}">
                 <div class="form-group">
                     <label for="keperluan">Keperluan </label>
                     <input type="text" class="form-control" id="keperluan" placeholder="Masukan Keperluan" name="keperluan" required>
+                </div>
+                <div class="form-group">
+                    <label for="angkatan">Tahun Angkatan </label>
+                    <input type="text" class="form-control" id="angkatan" placeholder="Masukan tahun angkatan" name="angkatan" required>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">

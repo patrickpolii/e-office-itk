@@ -13,7 +13,7 @@ use Illuminate\Database\Eloquent\Model;
 class Surat extends Model
 {
     protected $table = 'surat';
-    protected $fillable = [''];
+    protected $fillable = ['no_surat', 'nama_surat', 'id_users', 'status_surat' ];
     
     public function sk_aktif_organisasi(){
         return $this->hasOne(Sk_aktif_organisasi::class, 'id_surat');

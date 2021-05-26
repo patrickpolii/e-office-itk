@@ -17,6 +17,7 @@
                     <form action="{{ route('skAktifStudi.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <input type="hidden" name="id_users" value="{{ Auth::user()->id}}">
+                        <input type="hidden" name="status_surat" value="{{ 0 }}">
                         <input type="hidden" name="nama_surat" value="{{ 'sk_aktif_studi' }}">
                         <div class="form-group">
                             <label for="akreditasi_prodi">Akreditasi Program Studi </label>
