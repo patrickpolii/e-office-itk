@@ -28,7 +28,7 @@ class Surat extends Model
         return $this->hasOne(Sk_pengganti_ktm::class, 'id_surat');
     }
     public function sk_pernah_studi(){
-        return $this->hasOne(Sk_pengganti_studi::class, 'id_surat');
+        return $this->hasOne(Sk_pernah_studi::class, 'id_surat');
     }
 
     public function users() {

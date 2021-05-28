@@ -25,7 +25,6 @@ class SuratController extends Controller
     {
         
         $surat = Surat::all();
-        $jenis_surat = JenisSurat::all();
         $users = User::all();
         $mahasiswa = Mahasiswa::all();
         return view('akademik.dashboard', compact('surat', 'jenis_surat', 'users', 'mahasiswa'));
@@ -61,10 +60,21 @@ class SuratController extends Controller
     public function show($id)
     {
         $surat = Surat::findOrFail($id);
-        $jenis_surat = JenisSurat::all();
-        $users = User::all();
-        $mahasiswa = Mahasiswa::all();
-        return view('akademik.detail',compact('surat', 'jenis_surat', 'users', 'mahasiswa'));
+        if ($surat->nama_surat == 'SK Aktif Studi') {
+            return view('akademik.detail_surat.detail_sk_aktif_studi',compact('surat'));
+        }
+        elseif ($surat->nama_surat == 'SK Aktif Organisasi') {
+            return view('akademik.detail_surat.detail_sk_aktif_organisasi',compact('surat'));
+        }
+        elseif ($surat->nama_surat == 'SK Lulus') {
+            return view('akademik.detail_surat.detail_sk_lulus',compact('surat'));
+        }
+        elseif ($surat->nama_surat == 'SK Pengganti KTM') {
+            return view('akademik.detail_surat.detail_sk_pengganti_ktm',compact('surat'));
+        }
+        elseif ($surat->nama_surat == 'SK Pernah Studi') {
+            return view('akademik.detail_surat.detail_sk_pernah_studi',compact('surat'));
+        }
     }
 
     /**
@@ -105,8 +115,21 @@ class SuratController extends Controller
     {
     	$surat = Surat::findOrFail($id);
         $tanggal = Carbon::today()->format('d-m-Y');
-
-    	$pdf = PDF::loadview('cetak.sk',['surat'=>$surat, 'tanggal'=>$tanggal]);
+        if ($surat->nama_surat == 'SK Aktif Studi') {
+            $pdf = PDF::loadview('cetak.sk_aktif_studi',['surat'=>$surat, 'tanggal'=>$tanggal]);
+        }
+        elseif ($surat->nama_surat == 'SK Aktif Organisasi') {
+            $pdf = PDF::loadview('cetak.sk_aktif_organisasi',['surat'=>$surat, 'tanggal'=>$tanggal]);
+        }
+    	elseif ($surat->nama_surat == 'SK Pernah Studi') {
+            $pdf = PDF::loadview('cetak.sk_pernah_studi',['surat'=>$surat, 'tanggal'=>$tanggal]);
+        }
+        elseif ($surat->nama_surat == 'SK Lulus') {
+            $pdf = PDF::loadview('cetak.sk_lulus',['surat'=>$surat, 'tanggal'=>$tanggal]);
+        }
+        elseif ($surat->nama_surat == 'SK Pengganti KTM') {
+            $pdf = PDF::loadview('cetak.sk_pengganti_ktm',['surat'=>$surat, 'tanggal'=>$tanggal]);
+        }
     	return $pdf->download('surat-pdf');
     }
 }

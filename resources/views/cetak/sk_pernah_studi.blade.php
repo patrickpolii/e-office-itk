@@ -6,7 +6,7 @@
 
     <!-- No Surat -->
     <div class="text-center">
-        <br><b>SURAT KETERANGAN</b><br>
+        <br><b>SURAT KETERANGAN AKTIF STUDI</b><br>
         Nomor : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/IT10.C.1/AK.05/{{date('Y')}}
     </div>
     <br><br>
@@ -47,12 +47,7 @@
 
     <div class="row">
         <div class="col text-justify">
-            @if($surat->id_jenis_surat == 1)
-            Menerangkan dengan sebenarnya bahwa sampai dengan semester 
-            tahun akademik {{$surat->tahun_akademik}}, yang tersebut dibawah ini adalah Mahasiswa aktif 
-            mengikuti perkuliahan di Institut Teknologi Kalimantan (ITK) :
-            @elseif($surat->id_jenis_surat == 2)
-
+            Menerangkan dengan sebenarnya nama di bawah ini:
         </div>
     </div>
     <br><br>
@@ -73,9 +68,14 @@
                     <td>{{$surat->users->mahasiswa['nim']}}</td>
                 </tr>
                 <tr>
-                    <td>Prodi</td>
+                    <td>Program Studi</td>
                     <td>:</td>
                     <td>{{$surat->users->mahasiswa->prodi['nama_prodi']}}</td>
+                </tr>
+                <tr>
+                    <td>Program Studi</td>
+                    <td>:</td>
+                    <td>{{$surat->users->mahasiswa->prodi->jurusan['nama_jurusan']}}</td>
                 </tr>
             </table>
         </div>
@@ -85,7 +85,14 @@
 
     <div class="row">
         <div class="col text-justify">
-            Demikian surat keterangan ini dibuat untuk dipergunakan sebagai {{$surat->keperluan}}.
+            Adalah mahasiswa yang pernah studi di Institut Teknologi Kalimantan mulai semester {{$surat->sk_pernah_studi->semester_awal}} Tahun Akademik {{$surat->sk_pernah_studi->tahun_akademik_awal}} s/d semester {{$surat->sk_pernah_studi->semester_akhir}}Tahun Akademik {$surat->sk_pernah_studi->tahun_akademik_akhir}.
+        </div>
+    </div>
+    <br><br>
+
+    <div class="row">
+        <div class="col text-justify">
+            Demikian surat keterangan ini dibuat untuk dipergunakan sebagai {{$surat->sk_pernah_studi->keperluan}}.
         </div>
     </div>
     <br><br>

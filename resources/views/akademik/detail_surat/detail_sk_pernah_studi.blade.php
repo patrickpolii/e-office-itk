@@ -22,12 +22,12 @@
             </table>
         <div class="form-group">
             <label for="keperluan">KEPERLUAN</label><br>
-                <input type="text" name="keperluan" value="{{$surat->keperluan}}" class="form-control" readonly>
+                <input type="text" name="keperluan" value="{{$surat->sk_pernah_studi->keperluan}}" class="form-control" readonly>
         </div>
         <div class="form-row">
             <div class="form-group col-md-6">
-                <label for="tujuan">TUJUAN SURAT</label>
-                    <input type="text" name="tujuan" value="{{$surat->tujuan_surat}}" class="form-control" readonly>
+                <label for="tujuan">NAMA SURAT</label>
+                    <input type="text" name="tujuan" value="{{$surat->nama_surat}}" class="form-control" readonly>
             </div>
         </div>
         <br>

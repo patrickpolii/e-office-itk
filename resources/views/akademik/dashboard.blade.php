@@ -15,12 +15,14 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <?php $no = 0;?>
                     @foreach ($surat as $surat)
+                    <?php $no++ ;?>
                         <tr>
-                        <th>{{$surat->id}}</th>
+                        <th>{{ $no }}</th>
                         <td> {{$surat->users['name'] }} </td>
                         <td> {{$surat->users->mahasiswa['nim'] }} </td>
-                        <td> {{$surat->jenis_surat['nama_surat']}} </td>
+                        <td> {{$surat->nama_surat}} </td>
                         <td>
                             <a href="akademik/detail/{{$surat->id}}"class="badge badge-success">details</a>
                         </td>

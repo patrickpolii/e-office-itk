@@ -16,7 +16,7 @@
                     @csrf
                     <input type="hidden" name="id_users" value="{{ Auth::user()->id}}">
                     <input type="hidden" name="status_surat" value="{{ 0 }}">
-                    <input type="hidden" name="nama_surat" value="{{ 'sk_aktif_organisasi' }}">
+                    <input type="hidden" name="nama_surat" value="{{ 'SK Aktif Organisasi' }}">
                     <div class="form-group">
                         <label for="organisasi">Organisasi </label>
                         <input type="text" class="form-control" id="organisasi" placeholder="Masukan Organisasi" name="organisasi" required>
