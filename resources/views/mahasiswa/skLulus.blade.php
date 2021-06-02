@@ -23,8 +23,8 @@
                             <input type="text" class="form-control" id="keperluan" placeholder="Masukan Keperluan" name="keperluan" required>
                         </div>
                         <div class="form-group">
-                            <label for="akreditasi_prodi">Akreditasi Prodi </label>
-                            <input type="text" class="form-control" id="akreditasi_prodi" placeholder="Masukan akreditasi program studi" name="akreditasi_prodi" required>
+                            <label for="akreditasi_prodi">Akreditasi Institut </label>
+                            <input type="text" class="form-control" id="akreditasi_institut" placeholder="Masukan akreditasi program studi" name="akreditasi_institut" required>
                         </div>
                         <div class="form-row">
                             <label for="tanggal_yudisium">Tanggal Yudisium</label>

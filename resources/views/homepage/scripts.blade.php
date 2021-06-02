@@ -13,3 +13,4 @@
 
 <!-- Global Init -->
 <script src="{{ asset('assets/js/custom.js') }}"></script>
+<script src="{{ asset('ckeditor/ckeditor.js') }}"></script>

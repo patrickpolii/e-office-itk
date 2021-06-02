@@ -21,10 +21,12 @@ class PermohonanDataController extends Controller
      */
     public function index()
     {
-        $jurusan = 1;
-        $surat = Surat::whereHas('users.mahasiswa.prodi.jurusan', function($q) use ($jurusan){
+        $jurusan = Auth()->users->name;
+        $surat = Surat::where('status', 1)->whereHas('users.mahasiswa.prodi.jurusan', function($q) use ($jurusan){
             $q->whereId($jurusan);
         })->get();
+        return view('unit_kerja.index', compact('surat'));
+        
     }
 
     /**

@@ -22,18 +22,34 @@ class UserSeeder extends Seeder
 
         $mahasiswa = User::create([
             'name' => 'Patrick Polii',
-            'email' => 'patrick@student.itk.ac.id',
+            'email' => '11171003@student.itk.ac.id',
             'password' => bcrypt('12345678'),
         ]);
 
         $mahasiswa->assignRole('mahasiswa');
 
         $mahasiswa = User::create([
-            'name' => 'Holilrurahman',
-            'email' => 'holil@student.itk.ac.id',
+            'name' => 'Reynaldi Yulizar',
+            'email' => '10171064@student.itk.ac.id',
             'password' => bcrypt('12345678'),
         ]);
 
         $mahasiswa->assignRole('mahasiswa');
+
+        $unit_kerja = User::create([
+            'name' => 'JMTI',
+            'email' => 'jmti@staff.itk.ac.id',
+            'password' => bcrypt('12345678'),
+        ]);
+
+        $unit_kerja->assignRole('unit_kerja');
+
+        $unit_kerja = User::create([
+            'name' => 'JTIP',
+            'email' => 'jtip@staff.itk.ac.id',
+            'password' => bcrypt('12345678'),
+        ]);
+
+        $unit_kerja->assignRole('unit_kerja');
     }
 }

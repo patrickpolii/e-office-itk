@@ -30,6 +30,12 @@ class Surat extends Model
     public function sk_pernah_studi(){
         return $this->hasOne(Sk_pernah_studi::class, 'id_surat');
     }
+    public function sp_magang(){
+        return $this->hasOne(Sp_magang::class, 'id_surat');
+    }
+    public function surat_rekomendasi_beasiswa(){
+        return $this->hasOne(Surat_rekomendasi_beasiswa::class, 'id_surat');
+    }
 
     public function users() {
         return $this->belongsTo('App\User', 'id_users');

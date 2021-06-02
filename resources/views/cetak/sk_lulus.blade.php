@@ -80,7 +80,7 @@
                 <tr>
                     <td>Akreditasi Institut</td>
                     <td>:</td>
-                    <td>{{$surat->sk_lulus->akreditasi_prodi}}</td>
+                    <td>{{$surat->sk_lulus->akreditasi_institut}}</td>
                 </tr>
             </table>
         </div>

@@ -13,6 +13,8 @@ use App\Sk_aktif_studi;
 use App\Sk_lulus;
 use App\Sk_pengganti_ktm;
 use App\Sk_pernah_studi;
+use App\Sp_magang;
+use App\Surat_rekomendasi_beasiswa;
 use Illuminate\Http\Request;
 
 class SuratController extends Controller
@@ -75,6 +77,20 @@ class SuratController extends Controller
     public function sk_studi_create()
     {
         return view('mahasiswa.skStudi');
+    }
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function surat_rekomendasi_beasiswa_create()
+    {
+        return view('mahasiswa.suratBeasiswa');
+    }
+
+    public function sp_magang_create()
+    {
+        return view('mahasiswa.spMagang');
     }
 
     /**
@@ -161,6 +177,35 @@ class SuratController extends Controller
         $create = Sk_lulus::create($data);
         return redirect()->route('buat.surat')->withSuccess('Permohonan surat berhasil dibuat');
     }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function surat_rekomendasi_beasiswa_store(Request $request)
+    {
+        $data = $request->all();
+        $surat = Surat::create($data);
+
+        // fungsi insert child
+        $data['id_surat'] = $surat->id;
+        $create = Surat_rekomendasi_beasiswa::create($data);
+        return redirect()->route('buat.surat')->withSuccess('Permohonan surat berhasil dibuat');
+    }
+
+    public function sp_magang_store(Request $request)
+    {
+        $data = $request->all();
+        $surat = Surat::create($data);
+
+        // fungsi insert child
+        $data['id_surat'] = $surat->id;
+        $create = Sp_magang::create($data);
+        return redirect()->route('buat.surat')->withSuccess('Permohonan surat berhasil dibuat');
+    }
+
 
 
 

@@ -76,31 +76,31 @@
 		<div class="row">
 			<div class="col-md-4">
 				<div class="panel panel-primary">
-					<div class="panel-heading">SK Pengganti KTM
+					<div class="panel-heading">Rekomendasi Beasiswa
 						<span class="pull-right clickable panel-toggle"><em class="fa fa-toggle-up"></em></span></div>
 					<div class="panel-body">
-                        <p>Membuat surat keterangan pengganti KTM.</p>
-                        <a href="{{ url('/skKTM') }}" class="btn btn-primary">Buat</a>
+                        <p>Membuat surat rekomendasi beasiswa.</p>
+                        <a href="{{ url('/srBeasiswa') }}" class="btn btn-primary">Buat</a>
 					</div>
 				</div>
 			</div>
 			<div class="col-md-4">
 				<div class="panel panel-primary">
-					<div class="panel-heading">SK Lulus
+					<div class="panel-heading">Pengantar Magang
 						<span class="pull-right clickable panel-toggle"><em class="fa fa-toggle-up"></em></span></div>
 					<div class="panel-body">
-                        <p>Membuat surat keterangan telah lulus .</p>
-                        <a href="{{ url('/skLulus') }}" class="btn btn-primary">Buat</a>
+                        <p>Membuat surat  pengantar magang .</p>
+                        <a href="{{ url('/spMagang') }}" class="btn btn-primary">Buat</a>
 					</div>
 				</div>
 			</div>
 			<div class="col-md-4">
 				<div class="panel panel-primary">
-					<div class="panel-heading">Surat Permohonan Data
+					<div class="panel-heading">Surat Perjalanan
 						<span class="pull-right clickable panel-toggle"><em class="fa fa-toggle-up"></em></span></div>
 					<div class="panel-body">
-                        <p>Membuat surat permohonan data .</p>
-                        <a href="{{ url('/skLulus') }}" class="btn btn-primary">Buat</a>
+                        <p>Membuat surat perjalanan .</p>
+                        <a href="{{ url('/sPerjalanan') }}" class="btn btn-primary">Buat</a>
 					</div>
 				</div>
 			</div>

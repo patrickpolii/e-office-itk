@@ -24,10 +24,37 @@ class SuratController extends Controller
     public function index()
     {
         
-        $surat = Surat::all();
+        $surat = Surat::where('status_surat', 0)->get();
         $users = User::all();
         $mahasiswa = Mahasiswa::all();
-        return view('akademik.dashboard', compact('surat', 'jenis_surat', 'users', 'mahasiswa'));
+        return view('akademik.pengajuan', compact('surat', 'users', 'mahasiswa'));
+    }
+
+    public function indexVerifikasi()
+    {
+        
+        $surat = Surat::where('status_surat', 1)->get();
+        $users = User::all();
+        $mahasiswa = Mahasiswa::all();
+        return view('akademik.verifikasi', compact('surat', 'users', 'mahasiswa'));
+    }
+
+    public function indexCetak()
+    {
+        
+        $surat = Surat::where('status_surat', 2)->get();
+        $users = User::all();
+        $mahasiswa = Mahasiswa::all();
+        return view('akademik.cetak', compact('surat', 'users', 'mahasiswa'));
+    }
+
+    public function indexTolak()
+    {
+        
+        $surat = Surat::where('status_surat', 3)->get();
+        $users = User::all();
+        $mahasiswa = Mahasiswa::all();
+        return view('akademik.ditolak', compact('surat', 'users', 'mahasiswa'));
     }
 
     /**
@@ -75,6 +102,12 @@ class SuratController extends Controller
         elseif ($surat->nama_surat == 'SK Pernah Studi') {
             return view('akademik.detail_surat.detail_sk_pernah_studi',compact('surat'));
         }
+        elseif ($surat->nama_surat == 'Surat Rekomendasi Beasiswa') {
+            return view('akademik.detail_surat.detail_surat_rekomendasi_beasiswa',compact('surat'));
+        }
+        elseif ($surat->nama_surat == 'Surat Pengantar Magang') {
+            return view('akademik.detail_surat.detail_sp_magang',compact('surat'));
+        }
     }
 
     /**
@@ -111,9 +144,29 @@ class SuratController extends Controller
         //
     }
 
+    public function ditolak($id)
+    {
+        $surat = Surat::findOrFail($id);
+        $surat->status_surat = 3;
+        $surat->save();
+        return redirect()->route('akademik.tolak')->withSuccess('Permohonan surat berhasil ditolak');
+    }
+
+    public function verifikasi($id)
+    {
+        $surat = Surat::findOrFail($id);
+        $surat->status_surat = 1;
+        $surat->save();
+        return redirect()->route('akademik.pengajuan')->withSuccess('Permohonan surat berhasil diverifikasi');
+    }
+
     public function cetak($id)
     {
     	$surat = Surat::findOrFail($id);
+        
+        $surat->status_surat = 2;
+        $surat->save();
+        
         $tanggal = Carbon::today()->format('d-m-Y');
         if ($surat->nama_surat == 'SK Aktif Studi') {
             $pdf = PDF::loadview('cetak.sk_aktif_studi',['surat'=>$surat, 'tanggal'=>$tanggal]);

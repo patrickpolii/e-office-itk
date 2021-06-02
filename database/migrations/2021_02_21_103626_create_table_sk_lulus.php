@@ -19,7 +19,7 @@ class CreateTableSkLulus extends Migration
             $table->foreign('id_surat')
                   ->references('id')
                   ->on('surat');
-            $table->string('akreditasi_prodi', 1);
+            $table->string('akreditasi_institut', 1);
             $table->string('keperluan');
             $table->string('tanggal_yudisium');
             $table->timestamps();
