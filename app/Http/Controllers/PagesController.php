@@ -21,4 +21,9 @@ class PagesController extends Controller
         return view ('mahasiswa/buatsurat');
     }
 
+    public function KP()
+    {
+        return view ('mahasiswa/spKP');
+    }
+
 }

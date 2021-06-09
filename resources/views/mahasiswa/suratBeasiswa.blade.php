@@ -1,4 +1,5 @@
 @extends('/mahasiswa/layouts/main')
+@section('class', 'Buat Surat / Surat Rekomendasi Beasiswa')
 	@section('container')	
 	<div class="row">
         <div class="col-md-10">

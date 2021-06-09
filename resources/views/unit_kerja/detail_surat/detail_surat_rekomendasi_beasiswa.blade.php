@@ -29,13 +29,21 @@
                 <label for="tujuan">NAMA SURAT</label>
                     <input type="text" name="tujuan" value="{{$surat->nama_surat}}" class="form-control" readonly>
             </div>
+            @if($surat->status_surat == 5)
+            <form action="{{ route('jurusancetak.surat', $surat->id) }}" method="PUT" enctype="multipart/form-data">
+            @csrf
+            <div class="form-group col-md-6">
+                <label for="tujuan">No SURAT</label>
+                    <input type="text" name="no_surat" value="" class="form-control" required>
+            </div>
+            @endif
         </div>
         <br>
        
         <div class="row">
-            @if ($surat->status_surat == 0)
+            @if ($surat->status_surat == 4)
                 <div class="col-sm-8">
-                    <a href={{route('akademik.pengajuan')}} class="btn btn-primary"><b><- Kembali</b></a>
+                    <a href={{route('jurusan.pengajuan')}} class="btn btn-primary"><b><- Kembali</b></a>
                 </div>
                 <div class="col-sm-2">
                     <button type="button" class="btn btn-danger form-control" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"><b>Tolak</b></button>
@@ -49,7 +57,7 @@
                               </button>
                             </div>
                             <div class="modal-body">
-                              <form action ="{{route('ditolak.surat', $surat->id)}}" method="PUT">
+                              <form action ="{{route('jurusantolak.surat', $surat->id)}}" method="PUT">
                                 @csrf
                                 <div class="form-group">
                                   <label for="message-text" class="col-form-label">Keterangan:</label>
@@ -67,15 +75,25 @@
                       </div>      
                 </div>
                 <div class="col-sm-2" style="text-align: right">
-                    <a href="{{route('diteruskan.surat', $surat->id)}}" class="btn btn-success form-control"><b>Kirim ke Jurusan</b></a>
+                    <a href="{{route('jurusanverifikasi.surat', $surat->id)}}" class="btn btn-success form-control"><b>Verifikasi</b></a>
                 </div>
-            @elseif ($surat->status_surat == 4)
+            @elseif ($surat->status_surat == 5)
                 <div class="col-sm-8">
-                    <a href={{route('akademik.teruskan')}} class="btn btn-primary"><b><- Kembali</b></a>
+                    <a href={{route('jurusan.pengajuan')}} class="btn btn-primary"><b><- Kembali</b></a>
                 </div>
-            @elseif ($surat->status_surat == 3)
+                <div class="col-sm-2" style="text-align: right">
+                    <button type="submit" class="btn btn-primary">Cetak</button>
+                </div>
+            @elseif ($surat->status_surat == 6 )
                 <div class="col-sm-8">
-                    <a href={{route('akademik.tolak')}} class="btn btn-primary"><b><- Kembali</b></a>
+                    <a href={{route('jurusan.cetak')}} class="btn btn-primary"><b><- Kembali</b></a>
+                </div>
+                <div class="col-sm-2">
+                    <a href="{{route('jurusancetak.surat', $surat->id)}}" class="btn btn-success form-control"><b>Cetak</b></a>
+                </div>
+            @elseif ($surat->status_surat == 7 )
+                <div class="col-sm-8">
+                    <a href={{route('jurusan.tolak')}} class="btn btn-primary"><b><- Kembali</b></a>
                 </div>
             @endif
         </div>

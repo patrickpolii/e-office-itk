@@ -27,6 +27,9 @@
 		@include('unit_kerja.layouts.navbar')
 		@yield('dashboard')
 		@yield('pengajuan')
+		@yield('verifikasi')
+		@yield('cetak')
+		@yield('tolak')
 	</div>	<!--/.main-->
 	
 	

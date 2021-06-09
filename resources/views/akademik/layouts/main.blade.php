@@ -30,6 +30,7 @@
 		@yield('ditolak')
 		@yield('verifikasi')
 		@yield('cetak')
+		@yield('diteruskan')
 	</div>	<!--/.main-->
 	
 	

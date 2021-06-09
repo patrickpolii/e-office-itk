@@ -24,7 +24,7 @@
                         <td> {{$surat->users->mahasiswa['nim'] }} </td>
                         <td> {{$surat->nama_surat}} </td>
                         <td>
-                            <a href="#"class="badge badge-success">details</a>
+                            <a href="{{ route ('jurusan.detail', $surat->id) }}"class="badge badge-success">details</a>
                         </td>
                         </tr>
                     @endforeach

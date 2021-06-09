@@ -15,7 +15,7 @@
 						<span class="pull-right clickable panel-toggle"><em class="fa fa-toggle-up"></em></span></div>
 					<div class="panel-body">
                         <p>Membuat surat aktif studi.</p>
-                        <a href="{{ url('/skAktifStudi') }}" class="btn btn-primary">Buat</a>
+                        <a href="{{ route('skAktifStudi.create') }}" class="btn btn-primary">Buat</a>
 					</div>
 				</div>
 			</div>
@@ -25,7 +25,7 @@
 						<span class="pull-right clickable panel-toggle"><em class="fa fa-toggle-up"></em></span></div>
 					<div class="panel-body">
                         <p>Membuat surat aktif organisasi.</p>
-                        <a href="{{ url('/skOrganisasi') }}" class="btn btn-primary">Buat</a>
+                        <a href="{{ route('skOrganisasi.create') }}" class="btn btn-primary">Buat</a>
 					</div>
 				</div>
 			</div>
@@ -35,7 +35,7 @@
 						<span class="pull-right clickable panel-toggle"><em class="fa fa-toggle-up"></em></span></div>
 					<div class="panel-body">
                         <p>Membuat surat keterangan pernah studi.</p>
-                        <a href="{{ url('/skStudi') }}" class="btn btn-primary">Buat</a>
+                        <a href="{{ route('skStudi.create') }}" class="btn btn-primary">Buat</a>
 					</div>
 				</div>
 			</div>
@@ -48,7 +48,7 @@
 						<span class="pull-right clickable panel-toggle"><em class="fa fa-toggle-up"></em></span></div>
 					<div class="panel-body">
                         <p>Membuat surat keterangan pengganti KTM.</p>
-                        <a href="{{ url('/skKTM') }}" class="btn btn-primary">Buat</a>
+                        <a href="{{ route('skKTM.create') }}" class="btn btn-primary">Buat</a>
 					</div>
 				</div>
 			</div>
@@ -58,7 +58,7 @@
 						<span class="pull-right clickable panel-toggle"><em class="fa fa-toggle-up"></em></span></div>
 					<div class="panel-body">
                         <p>Membuat surat keterangan telah lulus .</p>
-                        <a href="{{ url('/skLulus') }}" class="btn btn-primary">Buat</a>
+                        <a href="{{ route('skLulus.create') }}" class="btn btn-primary">Buat</a>
 					</div>
 				</div>
 			</div>
@@ -80,7 +80,7 @@
 						<span class="pull-right clickable panel-toggle"><em class="fa fa-toggle-up"></em></span></div>
 					<div class="panel-body">
                         <p>Membuat surat rekomendasi beasiswa.</p>
-                        <a href="{{ url('/srBeasiswa') }}" class="btn btn-primary">Buat</a>
+                        <a href="{{ route('srBeasiswa.create') }}" class="btn btn-primary">Buat</a>
 					</div>
 				</div>
 			</div>
@@ -90,7 +90,7 @@
 						<span class="pull-right clickable panel-toggle"><em class="fa fa-toggle-up"></em></span></div>
 					<div class="panel-body">
                         <p>Membuat surat  pengantar magang .</p>
-                        <a href="{{ url('/spMagang') }}" class="btn btn-primary">Buat</a>
+                        <a href="{{ route('spMagang.create') }}" class="btn btn-primary">Buat</a>
 					</div>
 				</div>
 			</div>
@@ -100,6 +100,70 @@
 						<span class="pull-right clickable panel-toggle"><em class="fa fa-toggle-up"></em></span></div>
 					<div class="panel-body">
                         <p>Membuat surat perjalanan .</p>
+                        <a href="{{ url('/sPerjalanan') }}" class="btn btn-primary">Buat</a>
+					</div>
+				</div>
+			</div>
+		</div><!-- /.row -->
+		<div class="row">
+			<div class="col-md-4">
+				<div class="panel panel-primary">
+					<div class="panel-heading">SK Melaksanakan TA
+						<span class="pull-right clickable panel-toggle"><em class="fa fa-toggle-up"></em></span></div>
+					<div class="panel-body">
+                        <p>Membuat surat keterangan sedang melaksanakan TA.</p>
+                        <a href="{{ route('srBeasiswa.create') }}" class="btn btn-primary">Buat</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="panel panel-primary">
+					<div class="panel-heading">Peminjaman
+						<span class="pull-right clickable panel-toggle"><em class="fa fa-toggle-up"></em></span></div>
+					<div class="panel-body">
+                        <p>Membuat surat  permohonan peminjaman .</p>
+                        <a href="{{ route('spMagang.create') }}" class="btn btn-primary">Buat</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="panel panel-primary">
+					<div class="panel-heading">SP-MMTA
+						<span class="pull-right clickable panel-toggle"><em class="fa fa-toggle-up"></em></span></div>
+					<div class="panel-body">
+                        <p>Membuat SP-MMTA .</p>
+                        <a href="{{ url('/sPerjalanan') }}" class="btn btn-primary">Buat</a>
+					</div>
+				</div>
+			</div>
+		</div><!-- /.row -->
+		<div class="row">
+			<div class="col-md-4">
+				<div class="panel panel-primary">
+					<div class="panel-heading">Pengantar Proposal KP
+						<span class="pull-right clickable panel-toggle"><em class="fa fa-toggle-up"></em></span></div>
+					<div class="panel-body">
+                        <p>Membuat surat pengantar proposal KP.</p>
+                        <a href="{{ route('srBeasiswa.create') }}" class="btn btn-primary">Buat</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="panel panel-primary">
+					<div class="panel-heading">Pengantar KP
+						<span class="pull-right clickable panel-toggle"><em class="fa fa-toggle-up"></em></span></div>
+					<div class="panel-body">
+                        <p>Membuat surat  pengantar KP .</p>
+                        <a href="{{ route('spMagang.create') }}" class="btn btn-primary">Buat</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="panel panel-primary">
+					<div class="panel-heading">Melanjutkan Penelitian
+						<span class="pull-right clickable panel-toggle"><em class="fa fa-toggle-up"></em></span></div>
+					<div class="panel-body">
+                        <p>Membuat surat melanjutkan penelitian .</p>
                         <a href="{{ url('/sPerjalanan') }}" class="btn btn-primary">Buat</a>
 					</div>
 				</div>

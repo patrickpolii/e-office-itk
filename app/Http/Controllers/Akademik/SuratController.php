@@ -8,7 +8,6 @@ use App\Mahasiswa;
 use App\User;
 use App\Prodi;
 use App\Jurusan;
-use App\JenisSurat;
 use Auth;
 use PDF;
 use Carbon\Carbon;
@@ -37,6 +36,15 @@ class SuratController extends Controller
         $users = User::all();
         $mahasiswa = Mahasiswa::all();
         return view('akademik.verifikasi', compact('surat', 'users', 'mahasiswa'));
+    }
+
+    public function indexTeruskan()
+    {
+        
+        $surat = Surat::where('status_surat', 4)->get();
+        $users = User::all();
+        $mahasiswa = Mahasiswa::all();
+        return view('akademik.diteruskan', compact('surat', 'users', 'mahasiswa'));
     }
 
     public function indexCetak()
@@ -108,6 +116,30 @@ class SuratController extends Controller
         elseif ($surat->nama_surat == 'Surat Pengantar Magang') {
             return view('akademik.detail_surat.detail_sp_magang',compact('surat'));
         }
+        elseif ($surat->nama_surat == 'Surat Permohonan Data') {
+            return view('akademik.detail_surat.detail_surat_permohonan_data',compact('surat'));
+        }
+        elseif ($surat->nama_surat == 'Surat Pengantar KP') {
+            return view('akademik.detail_surat.detail_sp_kp',compact('surat'));
+        }
+    	elseif ($surat->nama_surat == 'Surat Pengantar Proposal KP') {
+            return view('akademik.detail_surat.detail_sp_proposal_kp',compact('surat'));
+        }
+        elseif ($surat->nama_surat == 'SK Melaksanakan Tugas Akhir') {
+            return view('akademik.detail_surat.detail_sk_ta',compact('surat'));
+        }
+        elseif ($surat->nama_surat == 'SK Perjalanan') {
+            return view('akademik.detail_surat.detail_sk_perjalanan',compact('surat'));
+        }
+        elseif ($surat->nama_surat == 'Surat Permohonan Peminjaman') {
+            return view('akademik.detail_surat.detail_surat_permohonan_peminjaman',compact('surat'));
+        }
+        elseif ($surat->nama_surat == 'SP-MMTA') {
+            return view('akademik.detail_surat.detail_sp_mmta',compact('surat'));
+        }
+        elseif ($surat->nama_surat == 'Surat Melanjutkan Penelitian') {
+            return view('akademik.detail_surat.detail_surat_melanjutkan_penelitian',compact('surat'));
+        }
     }
 
     /**
@@ -144,10 +176,11 @@ class SuratController extends Controller
         //
     }
 
-    public function ditolak($id)
+    public function ditolak(Request $request, $id)
     {
-        $surat = Surat::findOrFail($id);
+        $surat = Surat::findOrFail($id); 
         $surat->status_surat = 3;
+        $surat->keterangan_surat=$request->keterangan_surat;
         $surat->save();
         return redirect()->route('akademik.tolak')->withSuccess('Permohonan surat berhasil ditolak');
     }
@@ -157,13 +190,21 @@ class SuratController extends Controller
         $surat = Surat::findOrFail($id);
         $surat->status_surat = 1;
         $surat->save();
-        return redirect()->route('akademik.pengajuan')->withSuccess('Permohonan surat berhasil diverifikasi');
+        return redirect()->route('akademik.detail', $surat->id)->withSuccess('Permohonan surat berhasil diverifikasi');
     }
 
-    public function cetak($id)
+    public function diteruskan($id)
+    {
+        $surat = Surat::findOrFail($id);
+        $surat->status_surat = 4;
+        $surat->save();
+        return redirect()->route('akademik.teruskan')->withSuccess('Permohonan surat berhasil diteruskan kejurusan');
+    }
+
+    public function cetak(Request $request, $id)
     {
     	$surat = Surat::findOrFail($id);
-        
+        $surat->no_surat = $request->no_surat;
         $surat->status_surat = 2;
         $surat->save();
         

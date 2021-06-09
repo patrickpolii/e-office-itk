@@ -1,9 +1,9 @@
-@extends('/akademik/layouts/main')
-@section('pengajuan')
-<div class="pengajuan">
+@extends('/unit_kerja/layouts/main')
+@section('cetak')
+<div class="cetak">
     <div class="row">
         <div class="col-10">
-            <h3 class="mt-3">Daftar Pengajuan Surat</h3>
+            <h3 class="mt-3">Daftar Cetak Surat</h3>
             <table class="table">
                 <thead class="thead-dark">
                     <tr>
@@ -11,7 +11,6 @@
                     <th scope="col">Nama</th>
                     <th scope="col">NIM</th>
                     <th scope="col">Jenis Surat</th>
-                    <th scope="col">Tanggal Pengajuan</th>
                     <th scope="col">Aksi</th>
                     </tr>
                 </thead>
@@ -24,9 +23,8 @@
                         <td> {{$surat->users['name'] }} </td>
                         <td> {{$surat->users->mahasiswa['nim'] }} </td>
                         <td> {{$surat->nama_surat}} </td>
-                        <td> {{$surat->created_at}} </td>
                         <td>
-                            <a href="{{ route ('akademik.detail', $surat->id) }}"class="badge badge-success">details</a>
+                            <a href="{{ route ('jurusan.detail', $surat->id) }}"class="badge badge-success">details</a>
                         </td>
                         </tr>
                     @endforeach

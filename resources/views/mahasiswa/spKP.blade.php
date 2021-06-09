@@ -1,5 +1,5 @@
 @extends('/mahasiswa/layouts/main')
-@section('class', 'Buat Surat / Surat Pengantar Magang')
+@section('class', 'Buat Surat / Surat Pengantar Kerja Praktik')
 	@section('container')	
 	<div class="row">
         <div class="col-md-10">
@@ -16,7 +16,7 @@
                 @csrf
                 <input type="hidden" name="id_users" value="{{ Auth::user()->id}}">
                 <input type="hidden" name="status_surat" value="{{ 0 }}">
-                <input type="hidden" name="nama_surat" value="{{ 'Surat Pengantar Magang' }}">
+                <input type="hidden" name="nama_surat" value="Surat Pengantar Kerja Praktik">
                 <div class="form-group">
                     <label for="tujuan"> Tujuan Tempat Magang </label>
                     <input type="text" class="form-control" id="tujuan" placeholder="Masukan tempat tujuan magang" name="tujuan" required>
@@ -24,6 +24,10 @@
                 <div class="form-group">
                     <label for="dosen_pembimbing">Dosen Pembimbing </label>
                     <input type="text" class="form-control" id="dosen_pembimbing" placeholder="Masukan nama dosen pembimbing" name="dosen_pembimbing" required>
+                </div>
+                <div class="form-group">
+                    <label for="dosen_pembimbing">Dosen Pembimbing </label>
+                    <textarea name="dosen_pembimbing" id="konten" cols="30" rows="10"></textarea>
                 </div>
                 <div class="form-group">
                     <label for="tanggal_mulai">Tanggal Mulai </label>
@@ -39,4 +43,31 @@
         </div>
     </div> 
 	@endsection
+    @section('script')
+    <script>
+         ClassicEditor
+        .create( document.querySelector( '#konten' ), {
+        toolbar: {
+        items: [
+          'heading',
+          '|',
+          'bold',
+          'italic',
+          '|',
+          'bulletedList',
+          'numberedList',
+          '|',
+          'insertTable',
+          '|',
+          '|',
+          'undo',
+          'redo'
+        ]
+      },
+        } )
+        .catch( error => {
+            console.error( error );
+        } );
+    </script>
+    @endsection
         

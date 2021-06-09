@@ -19,5 +19,6 @@
 	</div>	<!--/.main-->
 	@include('mahasiswa.layouts.sidebar')
 	@include('mahasiswa.layouts.script')	
+	@yield('script')
 </body>
 </html>

@@ -1,4 +1,5 @@
 @extends('mahasiswa.layouts.main')
+@section('class', 'Buat Surat / SK Lulus')
 	@section('container')	
 	<div class="container">
         <div class="container">

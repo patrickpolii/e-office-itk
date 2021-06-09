@@ -19,6 +19,9 @@
         <li class="@if (Request::segment(1)=='buatsurat') active @endif">
             <a href="{{ url('/buatsurat') }}"><em class="fa fa-file-text">&nbsp;</em> Buat Surat</a>
         </li>
+        <li class="@if (Request::segment(1)=='statussurat') active @endif">
+            <a href="{{ route('status.surat') }}"><em class="fa fa-file-text">&nbsp;</em> Status Surat</a>
+        </li>
         <li>
             <a href="{{ route('logout') }}"
                onclick="event.preventDefault();
