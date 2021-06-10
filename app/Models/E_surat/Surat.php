@@ -1,13 +1,15 @@
 <?php
 
-namespace App;
+namespace App\Models\E_surat;
 use App\User;
-use App\Mahasiswa;
-use App\Sk_aktif_organisasi;
-use App\Sk_aktif_studi;
-use App\Sk_lulus;
-use App\Sk_pengganti_ktm;
-use App\Sk_pernah_studi;
+use App\Models\E_surat\Mahasiswa;
+use App\Models\E_surat\Sk_aktif_organisasi;
+use App\Models\E_surat\Sk_aktif_studi;
+use App\Models\E_surat\Sk_lulus;
+use App\Models\E_surat\Sk_pengganti_ktm;
+use App\Models\E_surat\Sk_pernah_studi;
+use App\Models\E_surat\Sp_magang;
+use App\Models\E_surat\Surat_rekomendasi_beasiswa;
 use Illuminate\Database\Eloquent\Model;
 
 class Surat extends Model

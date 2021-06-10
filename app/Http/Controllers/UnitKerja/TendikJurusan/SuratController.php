@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\UnitKerja;
+namespace App\Http\Controllers\UnitKerja\TendikJurusan;
 
 use App\Http\Controllers\Controller;
-use App\Surat;
-use App\Mahasiswa;
+use App\Models\E_surat\Surat;
+use App\Models\E_surat\Mahasiswa;
 use App\User;
-use App\Prodi;
-use App\Jurusan;
+use App\Models\E_surat\Prodi;
+use App\Models\E_surat\Jurusan;
 use Auth;
 use PDF;
 use Carbon\Carbon;
@@ -26,7 +26,7 @@ class SuratController extends Controller
         $surat = Surat::where('status_surat', 4)->whereHas('users.mahasiswa.prodi.jurusan', function($q) use ($jurusan){
             $q->where('nama_jurusan', $jurusan);
         })->get();
-        return view('unit_kerja.pengajuan', compact('surat'));
+        return view('unit_kerja.tendik_jurusan.pengajuan', compact('surat'));
     }
 
     public function indexVerifikasiJurusan()
@@ -35,7 +35,7 @@ class SuratController extends Controller
         $surat = Surat::where('status_surat', 5)->whereHas('users.mahasiswa.prodi.jurusan', function($q) use ($jurusan){
             $q->where('nama_jurusan', $jurusan);
         })->get();
-        return view('unit_kerja.verifikasi', compact('surat'));
+        return view('unit_kerja.tendik_jurusan.verifikasi', compact('surat'));
     }
 
     public function indexCetakJurusan()
@@ -44,7 +44,7 @@ class SuratController extends Controller
         $surat = Surat::where('status_surat', 6)->whereHas('users.mahasiswa.prodi.jurusan', function($q) use ($jurusan){
             $q->where('nama_jurusan', $jurusan);
         })->get();
-        return view('unit_kerja.cetak', compact('surat'));
+        return view('unit_kerja.tendik_jurusan.cetak', compact('surat'));
     }
 
     public function indexTolakJurusan()
@@ -53,7 +53,7 @@ class SuratController extends Controller
         $surat = Surat::where('status_surat', 7)->whereHas('users.mahasiswa.prodi.jurusan', function($q) use ($jurusan){
             $q->where('nama_jurusan', $jurusan);
         })->get();
-        return view('unit_kerja.tolak', compact('surat'));
+        return view('unit_kerja.tendik_jurusan.tolak', compact('surat'));
     }
 
     /**

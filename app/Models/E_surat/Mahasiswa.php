@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models\E_surat;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -10,7 +10,7 @@ class Mahasiswa extends Model
     protected $fillable = ['nim',];
  
     public function prodi() {
-        return $this->belongsTo('App\Prodi', 'id_prodi');
+        return $this->belongsTo('App\Models\E_surat\Prodi', 'id_prodi');
     }
 
     public function users() {

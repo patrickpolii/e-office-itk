@@ -1,7 +1,7 @@
 <?php
 
-namespace App;
-use App\Surat;
+namespace App\Models\E_surat;
+use App\Models\E_surat\Surat;
 use Illuminate\Database\Eloquent\Model;
 
 class Sk_lulus extends Model

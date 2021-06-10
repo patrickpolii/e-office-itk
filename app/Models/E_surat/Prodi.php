@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models\E_surat;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -11,9 +11,9 @@ class Prodi extends Model
     protected $fillable = ['nama_prodi'];
     
     public function jurusan() {
-        return $this->belongsTo('App\Jurusan', 'id_jurusan');
+        return $this->belongsTo('App\Models\E_surat\Jurusan', 'id_jurusan');
     }
     public function mahasiswa() {
-        return $this->hasMany('App\Mahasiswa');
+        return $this->hasMany('App\Models\E_surat\Mahasiswa');
     }   
 }

@@ -6,8 +6,8 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
-use App\Surat;
-use App\Mahasiswa;
+use App\Models\E_surat\Surat;
+use App\Models\E_surat\Mahasiswa;
 
 
 
@@ -46,12 +46,12 @@ class User extends Authenticatable
 
 
     public function mahasiswa(){
-        return $this->hasOne('App\mahasiswa', 'id_users');
+        return $this->hasOne('App\Models\E_surat\mahasiswa', 'id_users');
     }
 
 
     public function surat() {
-        return $this->hasMany('App\Surat');
+        return $this->hasMany('App\Models\E_surat\Surat');
     }   
 
 }

@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\Akademik;
 
 use App\Http\Controllers\Controller;
-use App\Surat;
-use App\Mahasiswa;
+use App\Models\E_surat\Surat;
+use App\Models\E_surat\Mahasiswa;
 use App\User;
-use App\Prodi;
-use App\Jurusan;
+use App\Models\E_surat\Prodi;
+use App\Models\E_surat\Jurusan;
 use Auth;
 use PDF;
 use Carbon\Carbon;
