@@ -1,10 +1,10 @@
 @extends('/unit_kerja/layouts/main')
 @section('tolak')
 <div class="tolak">
-    <div class="row">
-        <div class="col-10">
+    <div class="container">
+        <div class="col-md-10">
             <h3 class="mt-3">Daftar Surat Ditolak</h3>
-            <table class="table">
+            <table id="dataTable" class="table table-striped table-bordered" class="table">
                 <thead class="thead-dark">
                     <tr>
                     <th scope="col">No</th>

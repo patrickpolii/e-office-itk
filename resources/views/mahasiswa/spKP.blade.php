@@ -27,7 +27,7 @@
                 </div>
                 <div class="form-group">
                     <label for="dosen_pembimbing">Dosen Pembimbing </label>
-                    <textarea name="dosen_pembimbing" id="konten" cols="30" rows="10"></textarea>
+                    <textarea name="dosen_pembimbing" id="editor5" cols="30" rows="10"></textarea>
                 </div>
                 <div class="form-group">
                     <label for="tanggal_mulai">Tanggal Mulai </label>
@@ -45,29 +45,29 @@
 	@endsection
     @section('script')
     <script>
-         ClassicEditor
-        .create( document.querySelector( '#konten' ), {
-        toolbar: {
-        items: [
-          'heading',
-          '|',
-          'bold',
-          'italic',
-          '|',
-          'bulletedList',
-          'numberedList',
-          '|',
-          'insertTable',
-          '|',
-          '|',
-          'undo',
-          'redo'
-        ]
-      },
-        } )
-        .catch( error => {
-            console.error( error );
-        } );
-    </script>
+        ClassicEditor
+              .create( document.querySelector( '#editor5' ), {
+              toolbar: {
+              items: [
+                'heading',
+                '|',
+                'bold',
+                'italic',
+                '|',
+                'bulletedList',
+                'numberedList',
+                '|',
+                'insertTable',
+                '|',
+                '|',
+                'undo',
+                'redo'
+              ]
+            },
+              } )
+              .catch( error => {
+                  console.error( error );
+              } );
+      </script>
     @endsection
         

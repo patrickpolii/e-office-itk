@@ -8,6 +8,8 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/font-awesome.min.css') }}" >
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/datepicker3.css') }}" >
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/styles.css') }}" >
+	<link rel="stylesheet" type="text/css" href="{{ asset ('datatables/DataTables-1.10.25/css/datatables.bootstrap4.css') }}">
+
 	
 	<!--Custom Font-->
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">

@@ -76,8 +76,7 @@
                 </div>
                 <div class="col-sm-2" style="text-align: right">
                     <a href="{{route('verifikasi.surat', $surat->id)}}" class="btn btn-success form-control"><b>Verifikasi</b></a>
-                </div>
-                             
+                </div>                 
             @elseif ($surat->status_surat == 1)
                 <div class="col-sm-8">
                     <a href={{route('akademik.verifikasi')}} class="btn btn-primary"><b><- Kembali</b></a>

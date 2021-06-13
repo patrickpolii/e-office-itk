@@ -16,7 +16,7 @@
     <div class="row">
         <div class="col text-justify">
             Yang bertanda tangan dibawah ini: 
-        </div>
+        </div> 
     </div>
     <br><br>
 

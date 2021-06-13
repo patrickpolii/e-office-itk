@@ -93,6 +93,12 @@ class SuratController extends Controller
         return view('mahasiswa.spMagang');
     }
 
+    public function sp_kp_create()
+    {
+        return view('mahasiswa.spKP');
+    }
+
+
     /**
      * Store a newly created resource in storage.
      *

@@ -5,3 +5,14 @@
 <script src="{{ asset ('js/easypiechart-data.js')}}"></script>
 <script src="{{ asset('js/bootstrap-datepicker.js') }}"></script>
 <script src="{{ asset('js/custom.js') }}"></script>
+<script src="{{ asset('datatables/datatables.js') }} "></script>
+<script>
+    $(document).ready( function () {
+        $('#dataTable').DataTable();
+    } );
+    $('#dataTable').DataTable( {
+        responsive: true
+    } );
+</script>
+
+

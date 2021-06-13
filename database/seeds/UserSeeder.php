@@ -36,20 +36,60 @@ class UserSeeder extends Seeder
 
         $mahasiswa->assignRole('mahasiswa');
 
-        $unit_kerja = User::create([
+        $jurusan = User::create([
             'name' => 'JMTI',
             'email' => 'jmti@staff.itk.ac.id',
             'password' => bcrypt('12345678'),
         ]);
 
-        $unit_kerja->assignRole('unit_kerja');
+        $jurusan->assignRole('jurusan');
 
-        $unit_kerja = User::create([
+        $jurusan = User::create([
             'name' => 'JTIP',
             'email' => 'jtip@staff.itk.ac.id',
             'password' => bcrypt('12345678'),
         ]);
 
+        $jurusan->assignRole('jurusan');
+
+        $unit_kerja = User::create([
+            'name' => 'UPT',
+            'email' => 'upt@staff.itk.ac.id',
+            'password' => bcrypt('12345678'),
+        ]);
+
         $unit_kerja->assignRole('unit_kerja');
+
+        $arsiparis = User::create([
+            'name' => 'Arsiparis',
+            'email' => 'arsiparis@staff.itk.ac.id',
+            'password' => bcrypt('12345678'),
+        ]);
+
+        $arsiparis->assignRole('arsiparis');
+
+        $sekretariat = User::create([
+            'name' => 'Sekretariat',
+            'email' => 'sekretariat@staff.itk.ac.id',
+            'password' => bcrypt('12345678'),
+        ]);
+
+        $sekretariat->assignRole('sekretariat');
+
+        $wakil_rektor = User::create([
+            'name' => 'Wakil Rektor',
+            'email' => 'wakilrektor@staff.itk.ac.id',
+            'password' => bcrypt('12345678'),
+        ]);
+
+        $wakil_rektor->assignRole('wakil_rektor');
+
+        $rektor = User::create([
+            'name' => 'Rektor',
+            'email' => 'rektor@staff.itk.ac.id',
+            'password' => bcrypt('12345678'),
+        ]);
+
+        $rektor->assignRole('rektor');
     }
 }

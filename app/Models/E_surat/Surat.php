@@ -11,11 +11,11 @@ use App\Models\E_surat\Sk_pernah_studi;
 use App\Models\E_surat\Sp_magang;
 use App\Models\E_surat\Surat_rekomendasi_beasiswa;
 use Illuminate\Database\Eloquent\Model;
-
+ 
 class Surat extends Model
 {
     protected $table = 'surat';
-    protected $fillable = ['no_surat', 'nama_surat', 'id_users', 'status_surat' ];
+    protected $fillable = ['no_surat', 'nama_surat', 'id_users', 'status_surat', 'keterangan_surat' ];
     
     public function sk_aktif_organisasi(){
         return $this->hasOne(Sk_aktif_organisasi::class, 'id_surat');

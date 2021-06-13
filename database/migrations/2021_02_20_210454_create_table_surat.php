@@ -22,6 +22,7 @@ class CreateTableSurat extends Migration
                   ->references('id')
                   ->on('users');
             $table->tinyInteger('status_surat');
+            $table->string('keterangan_surat', 191)->nullable();
             $table->timestamps();    
         });
     }

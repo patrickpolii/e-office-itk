@@ -54,4 +54,8 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\E_surat\Surat');
     }   
 
+    public function surat_keluar() {
+        return $this->hasMany('App\Models\E_office\Surat_keluar');
+    }   
+
 }

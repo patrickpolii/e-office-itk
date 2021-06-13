@@ -35,19 +35,39 @@ Route::get('/akademik/pengajuan/diteruskan/{id}', 'Akademik\SuratController@dite
 Route::get('/akademik/pengajuan/detail/{id}/cetak', 'Akademik\SuratController@cetak')->name('cetak.surat');
 Route::get('/akademik/pengajuan/ditolak/{id}', 'Akademik\SuratController@ditolak')->name('ditolak.surat');
 
-Route::get('/jurusan/dashboard', 'UnitKerja\DashboardController@Dashboard')->middleware('role:unit_kerja')->name('unit_kerja.dashboard');
-Route::get('/jurusan/pengajuan', 'UnitKerja\SuratController@IndexPengajuanJurusan'
-)->middleware('role:unit_kerja')->name('jurusan.pengajuan');
-Route::get('/jurusan/verifikasi', 'UnitKerja\SuratController@IndexVerifikasiJurusan'
-)->middleware('role:unit_kerja')->name('jurusan.verifikasi');
-Route::get('/jurusan/cetak', 'UnitKerja\SuratController@IndexCetakJurusan'
-)->middleware('role:unit_kerja')->name('jurusan.cetak');
-Route::get('/jurusan/tolak', 'UnitKerja\SuratController@IndexTolakJurusan'
-)->middleware('role:unit_kerja')->name('jurusan.tolak');
-Route::get('/jurusan/pengajuan/detail/{id}', 'UnitKerja\SuratController@show')->name('jurusan.detail');
-Route::get('/jurusan/pengajuan/verifikasi/{id}', 'UnitKerja\SuratController@VerifikasiJurusan')->name('jurusanverifikasi.surat');
+Route::get('/jurusan/dashboard', 'UnitKerja\TendikJurusan\DashboardController@Dashboard')->middleware('role:jurusan')->name('jurusan.dashboard');
+Route::get('/jurusan/pengajuan', 'UnitKerja\TendikJurusan\SuratController@IndexPengajuanJurusan'
+)->middleware('role:jurusan')->name('jurusan.pengajuan');
+Route::get('/jurusan/verifikasi', 'UnitKerja\TendikJurusan\SuratController@IndexVerifikasiJurusan'
+)->middleware('role:jurusan')->name('jurusan.verifikasi');
+Route::get('/jurusan/cetak', 'UnitKerja\TendikJurusan\SuratController@IndexCetakJurusan'
+)->middleware('role:jurusan')->name('jurusan.cetak');
+Route::get('/jurusan/tolak', 'UnitKerja\TendikJurusan\SuratController@IndexTolakJurusan'
+)->middleware('role:jurusan')->name('jurusan.tolak');
+Route::get('/jurusan/pengajuan/detail/{id}', 'UnitKerja\TendikJurusan\SuratController@show')->name('jurusan.detail');
+Route::get('/jurusan/pengajuan/verifikasi/{id}', 'UnitKerja\TendikJurusan\SuratController@VerifikasiJurusan')->name('jurusanverifikasi.surat');
 Route::get('/jurusan/pengajuan/cetak/{id}', 'UnitKerja\SuratController@CetakJurusan')->name('jurusancetak.surat');
-Route::get('/jurusan/pengajuan/toalak/{id}', 'UnitKerja\SuratController@TolakJurusan')->name('jurusantolak.surat');
+Route::get('/jurusan/pengajuan/toalak/{id}', 'UnitKerja\TendikJurusan\SuratController@TolakJurusan')->name('jurusantolak.surat');
+
+
+Route::get('/wakilrektor/dashboard', 'WRektor\DashboardController@Dashboard')->middleware('role:wakil_rektor')->name('wrektor.dashboard');
+Route::get('/wakilrektor/pengajuan', 'WRektor\TataNaskahController@index'
+)->middleware('role:wakil_rektor')->name('wrektor.pengajuan');
+Route::get('/wakilrektor/paraf', 'WRektor\TataNaskahController@indexParaf'
+)->middleware('role:wakil_rektor')->name('wrektor.paraf');
+Route::get('/wakilrektor/ttd', 'WRektor\TataNaskahController@indexTtd'
+)->middleware('role:wakil_rektor')->name('wrektor.ttd');
+Route::get('/wakilrektor/tolak', 'WRektor\TataNaskahController@indexTolak'
+)->middleware('role:wakil_rektor')->name('wrektor.tolak');
+Route::get('/wakilrektor/pengajuan/detail/{id}', 'WRektor\TataNaskahController@show')->name('wrektor.detail');
+Route::get('/wakilrektor/pengajuan/paraf/{id}', 'WRektor\TataNaskahController@paraf')->name('wr.paraf');
+Route::get('/wakilrektor/pengajuan/ttd/{id}', 'WRektor\TataNaskahController@tandatangan')->name('wr.ttd');
+Route::get('/wakilrektor/pengajuan/tolak/{id}', 'WRektor\TataNaskahController@ditolak')->name('wr.tolak');
+
+
+Route::get('/unitkerja/dashboard', 'UnitKerja\DashboardController@Dashboard')->middleware('role:unit_kerja')->name('unit_kerja.dashboard');
+Route::get('/unitkerja/kirimsurat', 'UnitKerja\TataNaskahController@SuratKeluar_create')->middleware('role:unit_kerja')->name('kirim.surat');
+Route::post('/unitkerja/kirimsurat', 'UnitKerja\TataNaskahController@SuratKeluar_store')->middleware('role:unit_kerja')->name('suratkeluar.store');
 
 
 
@@ -66,6 +86,8 @@ Route::get('/srBeasiswa', 'Mahasiswa\SuratController@surat_rekomendasi_beasiswa_
 Route::post('/srBeasiswa', 'Mahasiswa\SuratController@surat_rekomendasi_beasiswa_store')->name('srBeasiswa.store');
 Route::get('/spMagang', 'Mahasiswa\SuratController@sp_magang_create')->name('spMagang.create');
 Route::post('/spMagang', 'Mahasiswa\SuratController@sp_magang_store')->name('spMagang.store');
+Route::get('/spKP', 'Mahasiswa\SuratController@sp_kp_create')->name('spKP.create');
+Route::post('/spKP', 'Mahasiswa\SuratController@sp_kp_store')->name('spKP.store');
 
 Route::get('/statusSurat', 'Mahasiswa\StatusController@status_surat')->name('status.surat');
 

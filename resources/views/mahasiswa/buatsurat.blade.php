@@ -154,7 +154,7 @@
 						<span class="pull-right clickable panel-toggle"><em class="fa fa-toggle-up"></em></span></div>
 					<div class="panel-body">
                         <p>Membuat surat  pengantar KP .</p>
-                        <a href="{{ route('spMagang.create') }}" class="btn btn-primary">Buat</a>
+                        <a href="{{ route('spKP.create') }}" class="btn btn-primary">Buat</a>
 					</div>
 				</div>
 			</div>
