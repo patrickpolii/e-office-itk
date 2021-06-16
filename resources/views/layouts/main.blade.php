@@ -20,19 +20,35 @@
 			</div>
 		</div><!-- /.container-fluid -->
 	</nav>
-
-	@include('layouts.sidebar')
+	@if(Auth::user()->hasRole('wakil_rektor'))
+	@include('layouts.sidebarWR')
+	@elseif(Auth::user()->hasRole('sekretariat'))
+	@include('layouts.sidebarSR')
+	@elseif(Auth::user()->hasRole('unit_kerja'))
+	@include('layouts.sidebarUnit')
+	@endif
 		
 	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
 		@include('akademik.layouts.navbar')
-		@yield('dashboard')
-		@yield('dashboardwr')
-		@yield('kirimsurat')
+		@if(Auth::user()->hasRole('wakil_rektor'))
+		@yield('dashboardWR')
+		@yield('filetatanaskahFilekeluar')
+		@yield('paraf')
+		@yield('tolakWR')
+		@yield('ttdWr')
+		@yield('pengajuankeluarWR')
+
+		@elseif(Auth::user()->hasRole('sekretariat'))
+		@yield("dashboardSR")
+		@yield('ttdWR')
+		@yield('ttdRektor')
 		@yield('detailtatanaskahFilekeluar')
+
+		@elseif(Auth::user()->hasRole('unit_kerja'))
+		@yield('dashboard')
+		@yield('kirimsurat')
 		@yield('pengajuankeluar')
-		@yield('tolakwr')
-		@yield('parafwr')
-		@yield('ttdwr')
+		@endif
 	</div>	<!--/.main-->
 	
 	

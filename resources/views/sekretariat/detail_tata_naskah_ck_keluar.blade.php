@@ -44,38 +44,9 @@
         </div>
         <br>
         <div class="row">
-            @if ($surat_keluar->status_tata_naskah == 1)
+            @if ($surat_keluar->status_tata_naskah == 2)
                 <div class="col-sm-8">
                     <a href={{route('wrektor.pengajuan')}} class="btn btn-primary"><b><- Kembali</b></a>
-                </div>
-                <div class="col-sm-2">
-                    <button type="button" class="btn btn-danger form-control" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"><b>Tolak</b></button>
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <h5 class="modal-title" id="exampleModalLabel">Masukan Keterangan Surat Ditolak</h5>
-                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                              </button>
-                            </div>
-                            <div class="modal-body">
-                              <form action ="{{route('wr.tolak', $surat_keluar->id)}}" method="PUT">
-                                @csrf
-                                <div class="form-group">
-                                  <label for="message-text" class="col-form-label">Keterangan:</label>
-                                  <textarea class="form-control" name="keterangan_surat" id="message-text"></textarea>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-primary">Kirim keterangan</button>
-                                  </div>
-                              </form>
-                            </div>
-                            
-                          </div>
-                        </div>
-                      </div>      
                 </div>
                 @if($surat_keluar->pejabat_penandatangan == 'Rektor')
                     <div class="col-sm-2" style="text-align: right">

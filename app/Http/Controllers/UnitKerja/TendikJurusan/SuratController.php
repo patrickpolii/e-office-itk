@@ -178,7 +178,7 @@ class SuratController extends Controller
         
         $tanggal = Carbon::today()->format('d-m-Y');
         if ($surat->nama_surat == 'Surat Permohonan Data') {
-            $pdf = PDF::loadview('cetak.sk_aktif_studi',['surat'=>$surat, 'tanggal'=>$tanggal]);
+            $pdf = PDF::loadview('cetak.surat_permohonan_data',['surat'=>$surat, 'tanggal'=>$tanggal]);
         }
         elseif ($surat->nama_surat == 'Surat Pengantar KP') {
             $pdf = PDF::loadview('cetak.sk_aktif_organisasi',['surat'=>$surat, 'tanggal'=>$tanggal]);
@@ -187,7 +187,7 @@ class SuratController extends Controller
             $pdf = PDF::loadview('cetak.sk_pernah_studi',['surat'=>$surat, 'tanggal'=>$tanggal]);
         }
         elseif ($surat->nama_surat == 'Surat Rekomendasi Beasiswa') {
-            $pdf = PDF::loadview('cetak.sk_lulus',['surat'=>$surat, 'tanggal'=>$tanggal]);
+            $pdf = PDF::loadview('cetak.surat_rekomendasi_beasiswa',['surat'=>$surat, 'tanggal'=>$tanggal]);
         }
         elseif ($surat->nama_surat == 'Surat Pengantar Magang') {
             $pdf = PDF::loadview('cetak.sk_pengganti_ktm',['surat'=>$surat, 'tanggal'=>$tanggal]);

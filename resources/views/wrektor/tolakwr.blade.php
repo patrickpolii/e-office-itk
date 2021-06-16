@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('tolakwr')
+@section('tolakWR')
 <div class="pengajuan">
     <div class="container">
         <div class="col-md-10">
@@ -11,22 +11,22 @@
                     <th scope="col">Nama</th>
                     <th scope="col">Jenis Tata Naskah</th>
                     <th scope="col">Pejabat Penandatangan</th>
-                    <th scope="col">Tanggal Pengajuan</th>
+                    <th scope="col">Tanggal Ditolak</th>
                     <th scope="col">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php $no = 0;?>
-                    @foreach ($surat as $surat)
+                    @foreach ($surat_keluar as $surat_keluar)
                     <?php $no++ ;?>
                         <tr>
                         <th>{{ $no }}</th>
-                        <td> {{$surat->users['name'] }} </td>
-                        <td> {{$surat->users->mahasiswa['nim'] }} </td>
-                        <td> {{$surat->nama_surat}} </td>
-                        <td> {{$surat->created_at}} </td>
+                        <td> {{$surat_keluar->users['name'] }} </td>
+                        <td> {{$surat_keluar->jenis_tata_naskah }} </td>
+                        <td> {{$surat_keluar->pejabat_penandatangan}} </td>
+                        <td> {{$surat_keluar->updated_at}} </td>
                         <td>
-                            <a href="{{ route ('akademik.detail', $surat->id) }}"class="badge badge-success">details</a>
+                            <a href="{{ route ('wrektor.detail', $surat_keluar->id) }}"class="badge badge-success">details</a>
                         </td>
                         </tr>
                     @endforeach

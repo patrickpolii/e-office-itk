@@ -2,7 +2,7 @@
 
         <!-- COP SURAT -->
         <div class="justify-content-center">
-            <img src="gambar/Logo Surat.png" id="cop_surat">
+            <img src="{{public_path('KopSurat.jpg')}}" />
         </div>
         <p>
-        <!-- END COP SURAT -->
+        <!-- END COP SURAT --> 

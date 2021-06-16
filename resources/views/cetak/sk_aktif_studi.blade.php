@@ -7,7 +7,7 @@
     <!-- No Surat -->
     <div class="text-center">
         <br><b>SURAT KETERANGAN AKTIF STUDI</b><br>
-        Nomor : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/IT10.C.1/AK.05/{{date('Y')}}
+        Nomor : {{$surat->no_surat}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/IT10.C.1/AK.05/{{date('Y')}}
     </div>
     <br><br>
     <!-- END No Surat -->
@@ -25,9 +25,9 @@
         <div class="col">
             <table width="100%">
                 <tr>
-                    <td style="width:10%">Nama</td>
+                    <td style="width:20%">Nama</td>
                     <td style="width:2%">:</td>
-                    <td style="width:88%">Aries Rohiyanto</td>
+                    <td style="width:78%">Aries Rohiyanto</td>
                 </tr>
                 <tr>
                     <td>NIP</td>
@@ -60,9 +60,9 @@
             <table width="100%">
 
                 <tr>
-                    <td style="width:10%">Nama</td>
+                    <td style="width:20%">Nama</td>
                     <td style="width:2%">:</td>
-                    <td style="width:88%">{{$surat->users['name']}}</td>
+                    <td style="width:78%">{{$surat->users['name']}}</td>
                 </tr>
                 <tr>
                     <td>NIM</td>

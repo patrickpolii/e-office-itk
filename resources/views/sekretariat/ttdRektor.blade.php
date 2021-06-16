@@ -1,9 +1,9 @@
 @extends('layouts.main')
-@section('ttdWr')
+@section('ttdRektor')
 <div class="pengajuan">
     <div class="container">
         <div class="col-md-10">
-            <h3 class="mt-3">Daftar Pengajuan Surat ditandatangani </h3>
+            <h3 class="mt-3">Daftar Pengajuan Surat ditandatangani Rektor </h3>
             <table id="dataTable" class="table table-striped table-bordered" class="table">
                 <thead class="thead-dark">
                     <tr>
@@ -26,7 +26,7 @@
                         <td> {{$surat_keluar->pejabat_penandatangan}} </td>
                         <td> {{$surat_keluar->updated_at}} </td>
                         <td>
-                            <a href="{{ route ('wrektor.detail', $surat_keluar->id) }}"class="badge badge-success">details</a>
+                            <a href="{{ route ('naskah.detail', $surat_keluar->id) }}"class="badge badge-success">details</a>
                         </td>
                         </tr>
                     @endforeach

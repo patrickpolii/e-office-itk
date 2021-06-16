@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('pengajuankeluar')
+@section('pengajuankeluarWR')
 <div class="pengajuan">
     <div class="container">
         <div class="col-md-10">

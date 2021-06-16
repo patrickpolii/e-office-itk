@@ -46,7 +46,7 @@ Route::get('/jurusan/tolak', 'UnitKerja\TendikJurusan\SuratController@IndexTolak
 )->middleware('role:jurusan')->name('jurusan.tolak');
 Route::get('/jurusan/pengajuan/detail/{id}', 'UnitKerja\TendikJurusan\SuratController@show')->name('jurusan.detail');
 Route::get('/jurusan/pengajuan/verifikasi/{id}', 'UnitKerja\TendikJurusan\SuratController@VerifikasiJurusan')->name('jurusanverifikasi.surat');
-Route::get('/jurusan/pengajuan/cetak/{id}', 'UnitKerja\SuratController@CetakJurusan')->name('jurusancetak.surat');
+Route::get('/jurusan/pengajuan/cetak/{id}', 'UnitKerja\TendikJurusan\SuratController@CetakJurusan')->name('jurusancetak.surat');
 Route::get('/jurusan/pengajuan/toalak/{id}', 'UnitKerja\TendikJurusan\SuratController@TolakJurusan')->name('jurusantolak.surat');
 
 
@@ -64,6 +64,12 @@ Route::get('/wakilrektor/pengajuan/paraf/{id}', 'WRektor\TataNaskahController@pa
 Route::get('/wakilrektor/pengajuan/ttd/{id}', 'WRektor\TataNaskahController@tandatangan')->name('wr.ttd');
 Route::get('/wakilrektor/pengajuan/tolak/{id}', 'WRektor\TataNaskahController@ditolak')->name('wr.tolak');
 
+
+Route::get('/sekretariat/dashboard', 'Sekretariat\DashboardController@Dashboard')->middleware('role:sekretariat')->name('sekretariat.dashboard');
+Route::get('/sekretariat/tandatanganWR', 'Sekretariat\TataNaskahController@indexTtdWR')->middleware('role:sekretariat')->name('sekretariat.TtdWR');
+Route::get('/sekretariat/tandatanganRektor', 'Sekretariat\TataNaskahController@indexTtdRektor')->middleware('role:sekretariat')->name('sekretariat.TtdRektor');
+Route::get('/sekretariat/pengajuan/detail/{id}', 'Sekretariat\TataNaskahController@show')->name('naskah.detail');
+Route::resource('tata_naskah', 'Sekretariat\TataNaskahController');
 
 Route::get('/unitkerja/dashboard', 'UnitKerja\DashboardController@Dashboard')->middleware('role:unit_kerja')->name('unit_kerja.dashboard');
 Route::get('/unitkerja/kirimsurat', 'UnitKerja\TataNaskahController@SuratKeluar_create')->middleware('role:unit_kerja')->name('kirim.surat');
@@ -91,9 +97,9 @@ Route::post('/spKP', 'Mahasiswa\SuratController@sp_kp_store')->name('spKP.store'
 
 Route::get('/statusSurat', 'Mahasiswa\StatusController@status_surat')->name('status.surat');
 
-Route::get('/home', 'PagesController@Home');
+Route::get('/home', 'PagesController@Home')->middleware('role:mahasiswa');
 Route::group(['prefix'=>'buatsurat'], function(){
-    Route::get('/', 'PagesController@BuatSurat')->name('buat.surat');
+    Route::get('/', 'PagesController@BuatSurat')->middleware('role:mahasiswa')->name('buat.surat');
    
 });
 

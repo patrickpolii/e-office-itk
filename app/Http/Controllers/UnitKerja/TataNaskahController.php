@@ -43,8 +43,11 @@ class TataNaskahController extends Controller
         $file = $request->file('tata_naskah_file');
 
         $tujuan_upload = 'data_file';
-        $nama = $file->move($tujuan_upload,$file->getClientOriginalName());
-        $data['tata_naskah_file'] = $nama;
+        if ($file != null) {
+            $nama = $file->move($tujuan_upload,$file->getClientOriginalName());
+            $data['tata_naskah_file'] = $nama;
+        }
+        
         $surat = Surat_keluar::create($data);
         return redirect()->route('unit_kerja.dashboard')->withSuccess('Pengajuan surat berhasil dikirim');
     }
@@ -57,7 +60,7 @@ class TataNaskahController extends Controller
      */
     public function show($id)
     {
-        //
+        // 
     }
 
     /**

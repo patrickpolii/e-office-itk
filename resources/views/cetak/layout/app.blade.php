@@ -13,7 +13,6 @@
     </title>
 </head>
 <body>
-
     @include('cetak.layout.header')
     @yield('content')
     @include('cetak.layout.footer')

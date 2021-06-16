@@ -204,11 +204,33 @@ class SuratController extends Controller
     public function cetak(Request $request, $id)
     {
     	$surat = Surat::findOrFail($id);
-        $surat->no_surat = $request->no_surat;
-        $surat->status_surat = 2;
-        $surat->save();
+        if($surat->no_surat == null){
+            $surat->no_surat = $request->no_surat;
+            $surat->status_surat = 2;
+            $surat->save();
+        }
         
         $tanggal = Carbon::today()->format('d-m-Y');
+        $hari = substr($tanggal,0,2);
+        $bulan = substr($tanggal,3,2);
+        $tahun = substr($tanggal,6,4);
+
+        $nama = [
+            "01" => "Januari",
+            "02" => "Februari",
+            "03" => "Maret",
+            "04" => "April",
+            "05" => "Mei",
+            "06" => "Juni",
+            "07" => "Juli",
+            "08" => "Agustus",
+            "09" => "September",
+            "10" => "Oktober",
+            "11" => "November",
+            "12" => "Desember",
+        ];
+
+        $tanggal = $hari.' '.$nama[$bulan].' '.$tahun;
         if ($surat->nama_surat == 'SK Aktif Studi') {
             $pdf = PDF::loadview('cetak.sk_aktif_studi',['surat'=>$surat, 'tanggal'=>$tanggal]);
         }
